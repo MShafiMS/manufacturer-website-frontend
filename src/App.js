@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import RequireAuth from './Pages/Login/RequireAuth';
 import './App.css';
 import Navbar from './Pages/Navbar/Navbar';
 import { Route, Routes } from 'react-router-dom';
@@ -14,6 +14,8 @@ import Review from './Pages/Dashboard/Review';
 import ManageOrders from './Pages/Dashboard/ManageOrders';
 import Manage from './Pages/Dashboard/Manage';
 import AddProduct from './Pages/Dashboard/AddProduct';
+import Purchase from './Pages/Purchase/Purchase';
+import Add from './Pages/Dashboard/Add';
 
 function App() {
   return (
@@ -23,8 +25,12 @@ function App() {
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<SignUp></SignUp>}></Route>
+        <Route path='/products/:purchaseId' element={<RequireAuth>
+          <Purchase></Purchase>
+        </RequireAuth>}></Route>
         <Route path='/dashboard' element={<Dashboard></Dashboard>}>
           <Route path='/dashboard/myprofile' element={<MyProfile></MyProfile>}></Route>
+          <Route path='update' element={<Add></Add>}></Route>
           <Route path='/dashboard/myorders' element={<MyOrders></MyOrders>}></Route>
           <Route path='/dashboard/addreview' element={<Review></Review>}></Route>
           <Route path='/dashboard/manageallorders' element={<ManageOrders></ManageOrders>}></Route>

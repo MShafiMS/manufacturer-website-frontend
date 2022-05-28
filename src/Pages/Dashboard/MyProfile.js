@@ -1,11 +1,66 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { Link } from "react-router-dom";
+import auth from "../../firebase.init";
 
 const MyProfile = () => {
-    return (
-        <div>
-            <h1>this is your profile</h1>
+    const [user] = useAuthState(auth);
+    const [product, setProduct] = useState([]);
+    const [loading, setloading] = useState(true);
+    useEffect(() => {
+        fetch(`http://localhost:5000/myprofile/${user?.email}`)
+            .then(res => res.json())
+            .then(data => {
+                setProduct(data);
+                setloading(false);
+            })
+
+    }, [product])
+  return (
+    <div>
+      <h2 className="text-4xl my-4 text-center font-bold text-secondary">
+        My Profile
+      </h2>
+      <div className="card w-96 mx-auto">
+        <div className="card-body">
+          <div className="avatar mx-auto">
+            <div className="w-24 rounded-full ring ring-secondary ring-offset-base-100 ring-offset-2">
+              <img src={user.photoURL} />
+            </div>
+          </div>
+          <h2 className="card-title mt-2 mx-auto">{user.displayName}</h2>
+          <p className="mx-auto">{user.email}</p>
+          <div className="card-actions justify-end">
+            <div className="mx-auto">
+              {product.education ? (
+                <p>Education : {product.education}</p>
+              ) : (
+                <p>Education: Please Set Your Education</p>
+              )}
+              {product.location ? (
+                <p>Location : {product.location}</p>
+              ) : (
+                <p>Location: Please Set Your Location</p>
+              )}
+              {product.phoneNumber ? (
+                <p>Phone Number : {product.phoneNumber}</p>
+              ) : (
+                <p>Phone Number: Please Set Your Phone Number</p>
+              )}
+              {product.linkedIn ? (
+                <a>LinkedIn Link : {product.linkedIn}</a>
+              ) : (
+                <p>LinkedIn Link: Please Set Your LinkedIn Link</p>
+              )}
+              <Link id="btnn" to="/dashboard/update" className="btn btn-secondary text-white">
+                Update Profile
+              </Link>
+            </div>
+          </div>
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default MyProfile;

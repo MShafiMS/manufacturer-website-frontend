@@ -1,36 +1,50 @@
-import React, { useRef, useState } from "react";
-import { Form } from "react-bootstrap";
+import React, { useEffect, useRef, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Form } from "react-bootstrap";
 
-const Review = () => {
-  const namevalue = useRef("");
-  const imgvalue = useRef("");
-  const ratingvalue = useRef("");
-  const descriptionvalue = useRef("");
+const Add = () => {
+  const [user] = useAuthState(auth);
+  const edu = useRef("");
+  const locations = useRef("");
+  const phone = useRef("");
+  const linkin = useRef("");
   const [reload, setReload] = useState(false);
+  const [product, setProduct] = useState([]);
+  const [loading1, setloading1] = useState(true);
+  useEffect(() => {
+    fetch(`http://localhost:5000/myprofile/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setProduct(data);
+        setloading1(false);
+      });
+  }, [product]);
 
   const addItem = (event) => {
     event.preventDefault();
-    const name = namevalue.current.value;
-    const img = imgvalue.current.value;
-    const description = descriptionvalue.current.value;
-    const rating = ratingvalue.current.value;
+    const educations = edu.current.value;
+    const locationss = locations.current.value;
+    const phoneno = phone.current.value;
+    const linkins = linkin.current.value;
 
     // add item's object
     const additems = {
-      name: name,
-      img: img,
-      ratings: parseFloat(rating),
-      description: description,
+      email: user?.email,
+      education: educations,
+      locations: locationss,
+      phoneNumber: phoneno,
+      linkedIn: linkins,
     };
 
     //add item with conditional statement
-    if (rating && description) {
+    if (educations || locationss || phoneno || linkins)
       fetch(
-        "http://localhost:5000/reviews",
+        `http://localhost:5000/myprofile/${user?.email}`,
         {
-          method: "POST",
+          method: "PUT",
           headers: {
             "Content-Type": "application/json",
           },
@@ -39,31 +53,34 @@ const Review = () => {
         [reload]
       )
         .then((response) => response.json())
+
         .then((data) => {
           console.log(data);
-          toast("Review successfully added!!!");
+          toast.success("successfully Complete!!!");
           event.target.reset();
           setReload(!reload);
         });
-    } else {
-      toast.error("Please fill up the important input field");
+    else {
+      toast.error("Please enter at least one input field");
     }
   };
 
   return (
-    <div>
+    <div className="container">
       <div className="card-body">
-        <h1 className="font-bold mx-auto text-3xl text-secondary">Add New Reviews</h1>
-        <Form id="formm" onSubmit={addItem} className="mx-auto">
+        <h1 className="font-bold mx-auto text-3xl text-secondary">
+          Update Your Profile
+        </h1>
+        <Form id='formm' onSubmit={addItem} className="mx-auto">
           <div className="form-control mx-auto">
             <div className="form-control">
               <label className="label">
-                <span className="label-text">User Name</span>
+                <span className="label-text">Education</span>
               </label>
               <input
-                ref={namevalue}
+                ref={edu}
                 type="text"
-                placeholder="Enter Name"
+                defaultValue={product?.education}
                 className="input input-bordered input-secondary w-80 max-w-xs"
               />
             </div>
@@ -71,12 +88,12 @@ const Review = () => {
           <div className="form-control mx-auto">
             <div className="form-control">
               <label className="label">
-                <span className="label-text">User Image</span>
+                <span className="label-text">Location</span>
               </label>
               <input
-                ref={imgvalue}
+                ref={locations}
                 type="text"
-                placeholder="Enter Image Link"
+                defaultValue={product?.location}
                 className="input input-bordered input-secondary w-80 max-w-xs"
               />
             </div>
@@ -84,12 +101,12 @@ const Review = () => {
           <div className="form-control mx-auto">
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Ratings</span>
+                <span className="label-text">Phone Number</span>
               </label>
               <input
-                ref={ratingvalue}
+                ref={phone}
                 type="text"
-                placeholder="Enter Ratings"
+                defaultValue={product?.phoneNumber}
                 className="input input-bordered input-secondary w-80 max-w-xs"
               />
             </div>
@@ -97,12 +114,12 @@ const Review = () => {
           <div className="form-control mx-auto">
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Description</span>
+                <span className="label-text">LinkedIn Link</span>
               </label>
               <input
-                ref={descriptionvalue}
+                ref={linkin}
                 type="text"
-                placeholder="Enter Description"
+                defaultValue={product?.linkedIn}
                 className="input input-bordered input-secondary w-80 max-w-xs"
               />
             </div>
@@ -110,14 +127,14 @@ const Review = () => {
               id="btnn"
               className="btn btn-secondary mt-4 text-white fw-bold w-100"
             >
-              Add Reviews
+              Update
             </button>
           </div>
         </Form>
-        <ToastContainer></ToastContainer>
       </div>
+      <ToastContainer></ToastContainer>
     </div>
   );
 };
 
-export default Review;
+export default Add;

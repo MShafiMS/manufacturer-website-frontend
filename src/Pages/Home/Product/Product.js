@@ -1,11 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import './Product.css';
 
 const Products = ({ product}) => {
-  const { name, img, description, minimumOrderQuantity, availableQuantity, price } = product;
+  const { _id, name, img, description, minimumOrderQuantity, availableQuantity, price } = product;
   return (
     <div>
-      <div className="card crd w-96 bg-base-100 shadow-xl">
+      <div className="card crd bg-base-100 shadow-xl">
         <figure className="px-10 pt-10">
           <img
             src={product.img}
@@ -20,7 +21,7 @@ const Products = ({ product}) => {
           <p><span className="font-bold">Price:</span>${product.price}</p>
           <p><span className="font-bold">Descirption:</span>{product.description}</p>
           <div className="card-actions">
-            <button className="btn btn-primary">Buy Now</button>
+            <Link  to={`/products/${_id}`} className="btn btn-primary">Buy Now</Link>
           </div>
         </div>
       </div>
