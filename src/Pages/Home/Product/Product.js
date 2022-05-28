@@ -1,22 +1,26 @@
 import React from "react";
 import './Product.css';
 
-const Products = ({ service }) => {
+const Products = ({ product}) => {
+  const { name, img, description, minimumOrderQuantity, availableQuantity, price } = product;
   return (
     <div>
-      <div class="card crd w-96 bg-base-100 shadow-xl">
-        <figure class="px-10 pt-10">
+      <div className="card crd w-96 bg-base-100 shadow-xl">
+        <figure className="px-10 pt-10">
           <img
-            src={service.img}
+            src={product.img}
             alt="Shoes"
-            class="img rounded-xl"
+            className="img rounded-xl"
           />
         </figure>
-        <div class="card-body items-center text-center">
-          <h2 class="card-title">{service.name}</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-          <div class="card-actions">
-            <button class="btn btn-primary">Buy Now</button>
+        <div className="card-body items-center text-center">
+          <h2 className="card-title">{product.name}</h2>
+          <p><span className="font-bold">Minimum Order:</span>{product.minimumOrderQuantity}</p>
+          <p><span className="font-bold">Available:</span>{product.availableQuantity}</p>
+          <p><span className="font-bold">Price:</span>${product.price}</p>
+          <p><span className="font-bold">Descirption:</span>{product.description}</p>
+          <div className="card-actions">
+            <button className="btn btn-primary">Buy Now</button>
           </div>
         </div>
       </div>

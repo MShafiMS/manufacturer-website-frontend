@@ -1,0 +1,36 @@
+
+li {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    padding-right: 20px;
+}
+
+li a {
+    color: rgb(51, 50, 50);
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 500;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid rgb(51, 50, 50);
+}
+
+li a:hover {
+    color: rgb(199, 12, 37);
+    border-bottom: 2px solid rgb(199, 12, 37);
+}
+
+.active a {
+    color: white;
+    border-bottom: 2px solid #2563eb;
+    background-color: #b191f2;
+}
+
+.active a:hover {
+    color: white;
+    border-bottom: 2px solid rgb(199, 12, 37);
+    background-color: rgb(199, 12, 37);
+}

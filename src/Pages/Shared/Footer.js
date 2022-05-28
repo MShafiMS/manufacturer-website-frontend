@@ -4,7 +4,7 @@ import logo from "../../logo.png";
 const Footer = () => {
   return (
     <div>
-      <footer className="footer p-10 bg-base-200 text-base-content">
+      <footer className="footer p-10 bg-base-300 text-base-content">
         <div>
           <span className="footer-title">Services</span>
           <a className="link link-hover">Branding</a>
@@ -45,7 +45,7 @@ const Footer = () => {
         </div>
       </footer>
       <div>
-        <footer className="footer items-center p-4 bg-base-200">
+        <footer className="footer items-center p-4 bg-base-300">
           <div className="items-center grid-flow-col">
             <img width="36" height="36" src={logo} alt="" />
             <p>Copyright © 2022 - All right reserved</p>

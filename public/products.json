@@ -1,0 +1,56 @@
+[
+  {
+    "_id": "62893f06a4a03477f2930988",
+    "name": "XTREME™ Drill/Driver Kit",
+    "img": "https://www.dewalt.com/NAG/PRODUCT/IMAGES/HIRES/DCD703F1/DCD703F1_1.jpg?resize=530x530",
+    "description": "Take on a wide range of drilling jobs with the incredible versatility offered by the XTREME™ 12V MAX*",
+    "minimumOrderQuantity": 50,
+    "availableQuantity": 120,
+    "price": 34
+  },
+  {
+    "_id": "62893f06a4a03477f2930989",
+    "name": "Saw with FLEXVOLT Advantage™",
+    "img": "https://www.dewalt.com/NAG/PRODUCT/IMAGES/HIRES/DCS573B/DCS573B_1.jpg?resize=530x530",
+    "description": "Get more power with the DEWALT® 20V MAX* brushless tools with FLEXVOLT Advantage™ tool technology.",
+    "minimumOrderQuantity": 60,
+    "availableQuantity": 130,
+    "price": 44
+  },
+  {
+    "_id": "62893f06a4a03477f293098a",
+    "name": "XR 5Ah Battery",
+    "img": "https://www.dewalt.com/NAG/PRODUCT/IMAGES/HIRES/DCB205-2/DCB205-2_1.jpg?resize=530x530",
+    "description": "The DCB205-2 20V MAX* 5.0Ah XR® Batteries provide immediate feedback on state of charge with the 3-LED Fuel Gauge System and has a lightweight design for easy transporting.",
+    "minimumOrderQuantity": 45,
+    "availableQuantity": 124,
+    "price": 32
+  },
+  {
+    "_id": "62893f06a4a03477f293098b",
+    "name": "Coil Roofing Nailar Kit",
+    "img": "https://www.dewalt.com/NAG/PRODUCT/IMAGES/HIRES/DCN45RND1/DCN45RND1_1.jpg?resize=530x530",
+    "description": "Ideal for service repairs and small jobs, this 20V MAX* 15° Cordless Coil Roofing Nailer delivers cordless convenience..",
+    "minimumOrderQuantity": 60,
+    "availableQuantity": 80,
+    "price": 43
+  },
+  {
+    "_id": "62893f06a4a03477f293098c",
+    "name": "Air Propane Heater",
+    "img": "https://www.dewalt.com/NAG/PRODUCT/IMAGES/HIRES/DXH70CFAV/DXH70CFAV_1.jpg?resize=530x530",
+    "description": "The 20V MAX* 70,000 BTU Cordless Forced Air Propane Heater comes standard with a hose, regulator, and all the safety you would expect from DEWALT products.",
+    "minimumOrderQuantity": 90,
+    "availableQuantity": 180,
+    "price": 77
+  },
+  {
+    "_id": "62893f06a4a03477f293098d",
+    "name": "Air Compressure Kit",
+    "img": "https://www.dewalt.com/NAG/PRODUCT/IMAGES/HIRES/DCC2560T1/DCC2560T1_1.jpg?resize=530x530",
+    "description": "The 60V MAX* FLEXVOLT 2.5 Gallon Cordless Air Compressor offers all of the convenience and portability of cordless, and lets you continue using the pneumatic tools you already have. ",
+    "minimumOrderQuantity": 90,
+    "availableQuantity": 60,
+    "price": 24
+  }
+]

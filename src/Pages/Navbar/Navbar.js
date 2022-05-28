@@ -1,29 +1,45 @@
+import { signOut } from "firebase/auth";
 import React from "react";
+import { Nav } from "react-bootstrap";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
-import logo from '../../logo.png';
+import auth from "../../firebase.init";
+import logo from "../../logo.png";
 
 const Navbar = () => {
+  const [user] = useAuthState(auth);
+  const handleSignOut = () => {
+    signOut(auth);
+  };
   const menuItems = (
     <>
       <li>
         <Link to="/">Home</Link>
       </li>
       <li>
-        <Link to="/dashboard">Dashboard</Link>
+        {user ?(
+          <Link to="/dashboard/myprofile">Dashboard</Link>
+        ):<></>}
       </li>
       <li>
         <Link to="/blogs">Blogs</Link>
       </li>
       <li>
-        <Link to="/myportfolio">My Portfolio</Link>
+        {user ?(
+          <Link to="/myportfolio">My Portfolio</Link>
+        ):<></>}
       </li>
       <li>
-        <Link to="/login">Login</Link>
+      {user ? (
+                <Nav.Link onClick={handleSignOut} className="fs-4 btn btn-primary text-white">LogOut</Nav.Link>
+              ) : (
+                <Nav.Link as={Link} to="/login" className="fs-4 btn btn-primary text-white">Login</Nav.Link>
+              )}
       </li>
     </>
   );
   return (
-    <div className="navbar bg-base-200">
+    <div className="navbar bg-base-300">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex="0" className="btn btn-ghost lg:hidden">
@@ -51,10 +67,7 @@ const Navbar = () => {
         </div>
         <Link to="/">
           <div className="items-center grid-flow-col-2 flex">
-            <img width="36" height="36" src={logo} alt="" />
-            <a className="pl-2 normal-case text-xl text-primary font-bold">
-              Smarty Tools
-            </a>
+            <img className="w-16 h-8 lg:ml-10" src={logo} alt="" />
           </div>
         </Link>
       </div>
