@@ -21,6 +21,7 @@ const Banner = () => {
               ❯
             </a>
           </div>
+          
         </div>
         <div id="slide2" class="carousel-item relative w-full">
           <img
