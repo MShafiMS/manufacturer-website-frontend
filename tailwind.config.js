@@ -7,14 +7,16 @@ module.exports = {
     themes: [
       {
         mytheme: {
-          primary: "#a991f7",
-          secondary: "#f6d860",
-          accent: "#37cdbe",
-          neutral: "#3d4451",
+          primary: "#2563eb",
+          secondary: "#60a5fa",
+          accent: "#b191f2",
+          neutral: "#191924",
           "base-100": "#ffffff",
+          success: "#9ca3af",
+          warning: "#6b7280",
         },
       },
-      "dark",
+      "light",
       "cupcake",
     ],
   },
