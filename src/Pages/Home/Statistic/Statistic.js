@@ -1,17 +1,17 @@
 import React from "react";
-import { CheckCircleIcon, DatabaseIcon, UploadIcon, UsersIcon } from '@heroicons/react/solid'
+import { CheckCircleIcon, CubeIcon, UploadIcon, UsersIcon } from '@heroicons/react/solid'
 
 const Statistic = () => {
   return (
     <div>
-      <h1 className="font-bold text-center text-5xl mt-5 lg:mt-28 mb-4">Our Achivements</h1>
+      <h1 className="font-bold text-center text-5xl mt-5 mb-4">Our Achivements</h1>
       <p className="text-center text-warning font-medium mb-4 lg:mb-20 lg:mx-40">
         Furnitory is considered to be the Game Changer in furniture industry.
         Carefully-chosen raw material, environment-friendly business practice
         and customer-centric approach is what made Furnitory. Now Furnitory a
         beloved brand at home and abroad.
       </p>
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-5 mx-5 lg:mb-28">
+      <div className="grid grid-cols-1 mb-5 lg:grid-cols-4 gap-5 mx-5 lg:mb-28">
         <div class="card lg:card-side bg-base-100 border-solid border-2 border-success hover:border-primary">
           <div class="card-body">
             <UsersIcon className="h-10 w-10 ml-22 text-primary mx-auto"></UsersIcon>
@@ -28,7 +28,7 @@ const Statistic = () => {
         </div>
         <div class="card lg:card-side bg-base-100 border-solid border-2 border-success hover:border-primary">
           <div class="card-body">
-            <DatabaseIcon className="h-10 w-10 ml-22 text-primary mx-auto"></DatabaseIcon>
+            <CubeIcon className="h-10 w-10 ml-22 text-primary mx-auto"></CubeIcon>
             <h2 class="text-4xl font-bold text-center">30.5K</h2>
             <p className="text-center font-medium">In Stock</p>
           </div>

@@ -45,7 +45,7 @@ const Footer = () => {
         </div>
       </footer>
       <div>
-        <footer className="footer items-center p-4 bg-neutral text-neutral-content">
+        <footer className="footer items-center p-4 bg-base-200">
           <div className="items-center grid-flow-col">
             <img width="36" height="36" src={logo} alt="" />
             <p>Copyright © 2022 - All right reserved</p>
