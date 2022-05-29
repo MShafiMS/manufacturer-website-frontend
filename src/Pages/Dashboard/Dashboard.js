@@ -29,7 +29,7 @@ const Dashboard = () => {
             </svg>
                 </label>
             </div>
-        <a className="text-secondary pl-5 font-semibold text-xl">Dashboard</a>
+        <a className="text-secondary pl-5 font-semibold text-2xl">Dashboard</a>
       </div>
       <div className="drawer drawer-mobile">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />

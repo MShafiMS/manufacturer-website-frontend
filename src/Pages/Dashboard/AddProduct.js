@@ -49,7 +49,6 @@ const AddProduct = () => {
 
 
                 .then(data => {
-                    console.log(data);
                     toast('item successfully added!!!');
                     event.target.reset();
                     setReload(!reload);
@@ -62,40 +61,100 @@ const AddProduct = () => {
     }
     return (
         <div>
-            <div style={{ minHeight: '90vh' }} className='mt-3 mb-3' >
-                <h1 className='text-center fw-bold'>Add New Items</h1>
-                <Form id='formm' onSubmit={addItem} className='w-50 mx-auto shadow-lg p-5 mt-3 mb-3'>
-                    <Form.Group className="mb-3" controlId="formBasicName">
-                        <Form.Label>Product Name</Form.Label>
-                        <Form.Control ref={namevalue} type="text" placeholder="Enter Name" />
-                    </Form.Group>
-                    <Form.Group className="mb-3" controlId="formBasicImg">
-                        <Form.Label>Product Image</Form.Label>
-                        <Form.Control ref={imgvalue} type="text" placeholder="Enter Image Link" />
-                    </Form.Group>
-                    <Form.Group className="mb-3" controlId="formBasicDescription">
-                        <Form.Label>Product Description</Form.Label>
-                        <Form.Control ref={descriptionvalue} type="text" placeholder="Enter Description" />
-                    </Form.Group>
-                    <Form.Group className="mb-3" controlId="formBasicQuantity">
-                        <Form.Label> Minimum Order Quantity</Form.Label>
-                        <Form.Control ref={minimumorderQuantity} type="text" placeholder="Enter Minimum Quantity" />
-                    </Form.Group>
-                    <Form.Group className="mb-3" controlId="formBasicSupplierName">
-                        <Form.Label>Available Quantity</Form.Label>
-                        <Form.Control ref={availablequantity} type="text" placeholder="Enter Available Quantity" />
-                    </Form.Group>
-                    <Form.Group className="mb-3" controlId="formBasicPrice">
-                        <Form.Label> Product Price</Form.Label>
-                        <Form.Control ref={pricevalue} type="text" placeholder="Enter Price" />
-                    </Form.Group>
-
-                    <button id='btnn' className='btn text-white fw-bold w-100'>Add Product</button>
-                </Form>
-                <ToastContainer ></ToastContainer>
+            
+<div className="card-body">
+        <h1 className="font-bold mx-auto text-3xl text-secondary">Add New Product</h1>
+        <Form id="formm" onSubmit={addItem} className="mx-auto">
+          <div className="form-control mx-auto">
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Product Name</span>
+              </label>
+              <input
+                 ref={namevalue} 
+                type="text"
+                placeholder="Enter Name"
+                className="input input-bordered input-secondary w-80 max-w-xs"
+              />
             </div>
+          </div>
+          <div className="form-control mx-auto">
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Product Image</span>
+              </label>
+              <input
+                ref={imgvalue}
+                type="text"
+                placeholder="Enter Image Link"
+                className="input input-bordered input-secondary w-80 max-w-xs"
+              />
+            </div>
+          </div>
+          <div className="form-control mx-auto">
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Product Description</span>
+              </label>
+              <input
+                ref={descriptionvalue}
+                type="text"
+                placeholder="Enter Product Description"
+                className="input input-bordered input-secondary w-80 max-w-xs"
+              />
+            </div>
+          </div>
+          <div className="form-control mx-auto">
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Minimum Order Quantity</span>
+              </label>
+              <input
+                ref={minimumorderQuantity}
+                type="text"
+                placeholder="Enter Minimum Order Quantity"
+                className="input input-bordered input-secondary w-80 max-w-xs"
+              />
+            </div>
+          <div className="form-control mx-auto">
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Available Quantity</span>
+              </label>
+              <input
+                ref={availablequantity}
+                type="text"
+                placeholder="Enter Available Quantity"
+                className="input input-bordered input-secondary w-80 max-w-xs"
+              />
+            </div>
+          </div>
+          <div className="form-control mx-auto">
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Product Price</span>
+              </label>
+              <input
+                ref={pricevalue}
+                type="text"
+                placeholder="Enter Product Price"
+                className="input input-bordered input-secondary w-80 max-w-xs"
+              />
+            </div>
+            <button
+              id="btnn"
+              className="btn btn-secondary mt-4 text-white fw-bold w-100"
+            >
+              Add Product
+            </button>
+          </div>
+          </div>
+        </Form>
+        <ToastContainer></ToastContainer>
+      </div>
         </div>
     );
 };
 
 export default AddProduct;
+

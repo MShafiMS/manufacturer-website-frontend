@@ -55,8 +55,7 @@ const Add = () => {
         .then((response) => response.json())
 
         .then((data) => {
-          console.log(data);
-          toast.success("successfully Complete!!!");
+          toast.success("successfully Updated!!!");
           event.target.reset();
           setReload(!reload);
         });

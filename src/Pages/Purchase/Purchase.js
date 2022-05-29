@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Form } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useParams } from "react-router-dom";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import auth from "../../firebase.init";
 
 const Purchase = () => {
@@ -48,7 +48,7 @@ const Purchase = () => {
     }, [reload])
         .then(response => response.json())
         .then(data => {
-            console.log(data);
+            
             toast.success('order is successful!!!');
             event.target.reset();
             setReload(!reload);
@@ -69,6 +69,7 @@ const Purchase = () => {
       buttondisable.current.disabled = true;
     } else {
       buttondisable.current.disabled = false;
+      toast.success('success');
     }
   };
 
@@ -90,32 +91,10 @@ const Purchase = () => {
   return (
     <div>
       <div className="card-body w-96 mx-auto">
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text font-semibold">User Name</span>
-          </label>
-          <input
-            type="text"
-            className="input  input-bordered input-secondary max-w-xs"
-            value={user.displayName}
-            readOnly
-            autoFocus
-          />
-        </div>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text font-semibold">User Email</span>
-          </label>
-          <input
-            type="text"
-            className="input input-bordered input-secondary max-w-xs"
-            value={user.email}
-            readOnly
-            autoFocus
-          />
-        </div>
+        <h1 className="font-bold text-2xl">{user.displayName}</h1>
+        <h1 className="font-semibold text-xl">{user.email}</h1>
       </div>
-      <div className="card my-8 w-96 mx-auto bg-base-100 shadow-xl">
+      <div className="card mb-8 w-96 mx-auto bg-base-100 shadow-xl">
         <figure className="px-10 pt-10">
           <img src={products?.img} alt="Shoes" className="img rounded-xl" />
         </figure>
@@ -232,7 +211,7 @@ const Purchase = () => {
               <span className="label-text">Enter Address</span>
             </label>
             <input
-              ref={addresss} type="text"  placeholder="Enter Address"
+              ref={addresss} type="text" required  placeholder="Enter Address"
             className="input input-bordered input-secondary max-w-xs"
           />
           </div>
@@ -241,7 +220,7 @@ const Purchase = () => {
               <span className="label-text">Enter Phone Number</span>
             </label>
             <input
-             ref={phoneNo} type="text" placeholder="Enter Phone Number"
+             ref={phoneNo} required type="text" placeholder="Enter Phone Number"
             className="input input-bordered input-secondary max-w-xs"
           />
           </div>
@@ -251,6 +230,7 @@ const Purchase = () => {
           </Form>
         </div>
       </div>
+      <ToastContainer></ToastContainer>
     </div>
   );
 };

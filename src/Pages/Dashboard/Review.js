@@ -40,7 +40,6 @@ const Review = () => {
       )
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
           toast("Review successfully added!!!");
           event.target.reset();
           setReload(!reload);

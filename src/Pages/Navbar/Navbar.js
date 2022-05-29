@@ -16,25 +16,23 @@ const Navbar = () => {
       <li>
         <Link to="/">Home</Link>
       </li>
-      <li>
-        {user ?(
-          <Link to="/dashboard/myprofile">Dashboard</Link>
-        ):<></>}
-      </li>
+      <li>{user ? <Link to="/dashboard/myprofile">Dashboard</Link> : <></>}</li>
       <li>
         <Link to="/blogs">Blogs</Link>
       </li>
+      <li>{user ? <Link to="/myportfolio">My Portfolio</Link> : <></>}</li>
       <li>
-        {user ?(
-          <Link to="/myportfolio">My Portfolio</Link>
-        ):<></>}
-      </li>
-      <li>
-      {user ? (
-                <Nav.Link onClick={handleSignOut} className="fs-4 btn btn-primary text-white">LogOut</Nav.Link>
-              ) : (
-                <Nav.Link as={Link} to="/login" className="fs-4 btn btn-primary text-white">Login</Nav.Link>
-              )}
+        {user ? (
+          <></>
+        ) : (
+          <Nav.Link
+            as={Link}
+            to="/login"
+            className="fs-4 btn btn-primary text-white"
+          >
+            Login
+          </Nav.Link>
+        )}
       </li>
     </>
   );
@@ -71,8 +69,37 @@ const Navbar = () => {
           </div>
         </Link>
       </div>
-      <div className="navbar-end hidden lg:flex">
-        <ul className="menu menu-horizontal p-0 font-medium">{menuItems}</ul>
+
+      <div className="navbar-end">
+        <div className="hidden lg:flex">
+          <ul className="menu menu-horizontal p-0 font-medium">{menuItems}</ul>
+        </div>
+        {user ? (<div className="dropdown dropdown-end">
+          <label tabindex="0" className="btn btn-ghost btn-circle avatar">
+            <div className="w-10 rounded-full">
+              <img src={user?.photoURL} />
+            </div>
+          </label>
+          <ul
+            tabindex="0"
+            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+          >
+            <li>
+              <Link to={'/dashboard/myprofile'} className="justify-between">
+                Profile
+                <span className="badge">Update</span>
+              </Link>
+            </li>
+            <li>
+              <Link to={"dashboard/myorders"}>
+                My Order
+              </Link>
+            </li>
+            <li>
+              <a onClick={handleSignOut}>Logout</a>
+            </li>
+          </ul>
+        </div>) : (<></>)}
       </div>
     </div>
   );
