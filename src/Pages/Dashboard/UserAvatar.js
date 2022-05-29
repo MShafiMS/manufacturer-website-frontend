@@ -28,7 +28,7 @@ const UserAvatar = ({ user, refetch }) => {
     }
     return (
 
-        <tr style={{ backgroundColor: ' rgb(50, 48, 48)' }} className=' row text-white fw-bold text-center'>
+        <tr className=' row text-white bg-secondary fw-bold text-center'>
 
             <td className='col '>{user.email}</td>
             <td className='col '>{user.role !== 'admin' && <button onClick={makeAdmin} className='btn btn-dark fw-bold'>Make Admin</button>}

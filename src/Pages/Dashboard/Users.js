@@ -19,7 +19,7 @@ const Users = () => {
             {isLoading ? <div className='d-flex justify-content-center align-items-center mt-5'>
                 <Spinner animation="grow" variant="light" /> </div> :
                 <table className='container mt-5 mb-5'>
-                    <thead style={{ backgroundColor: ' rgb(50, 48, 48)' }} className='row text-whute fw-bold text-center'>
+                    <thead className='row text-whute fw-bold text-center'>
 
 
                         <th className='col'>User</th>
