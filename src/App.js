@@ -18,6 +18,7 @@ import Purchase from './Pages/Purchase/Purchase';
 import Add from './Pages/Dashboard/Add';
 import MyPortfolio from './Pages/Dashboard/MyPortfolio/MyPortfolio';
 import Users from './Pages/Dashboard/Users';
+import NotFound from './Pages/NotFound/NotFound';
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
           <Route path='/dashboard/manageproduct' element={<RequireAuth></RequireAuth>}></Route>
         </Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
     </div>
