@@ -38,6 +38,10 @@ const Login = () => {
     return <Loading></Loading>;
   }
 
+  if (token) {
+    navigate('/');
+}
+
   if (error || gError) {
     signInError = (
       <p className="text-red-500">

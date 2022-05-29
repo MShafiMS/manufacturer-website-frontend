@@ -1,42 +1,42 @@
 import React from 'react';
-import { Spinner } from 'react-bootstrap';
 import { useQuery } from 'react-query';
-import UserAvatar from './UserAvatar';
+import Loading from '../Shared/Loading';
+import UserRow from './UserRow';
 
 const Users = () => {
-
-
-    const { data: products, isLoading,refetch } = useQuery('product', () => fetch("http://localhost:5000/user", {
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/user', {
         method: 'GET',
-        headers: {
+        headers:{
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
         }
-    })
-        .then(res => res.json()));
+    }).then(res => res.json()));
+    if (isLoading) {
+        return <Loading></Loading>
+    }
     return (
-
-        <>
-            {isLoading ? <div className='d-flex justify-content-center align-items-center mt-5'>
-                <Spinner animation="grow" variant="light" /> </div> :
-                <table className='container mt-5 mb-5'>
-                    <thead className='row text-whute fw-bold text-center'>
-
-
-                        <th className='col'>User</th>
-                        <th className='col'>Make Admin</th>
-                        <hr />
+        <div>
+            <div class="overflow-x-auto">
+                <table class="table w-full">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Name</th>
+                            <th>Make Admin</th>
+                            <th>Remove User</th>
+                        </tr>
                     </thead>
-                   <tbody>
-                   {
-                        products?.map(user => <UserAvatar refetch={refetch} key={user._id} user={user}></UserAvatar>)
-                    }
-                   </tbody>
-                </table>}
-
-        </>
-
-
-
+                    <tbody>
+                       {
+                           users.map(user=><UserRow
+                           key={user._id}
+                           user={user}
+                           refetch={refetch}
+                           ></UserRow>)
+                       }
+                    </tbody>
+                </table>
+            </div>
+        </div>
     );
 };
 

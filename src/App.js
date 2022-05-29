@@ -31,15 +31,15 @@ function App() {
         <Route path='/products/:purchaseId' element={<RequireAuth>
           <Purchase></Purchase>
         </RequireAuth>}></Route>
-        <Route path='/dashboard' element={<Dashboard></Dashboard>}>
-          <Route path='/dashboard/myprofile' element={<MyProfile></MyProfile>}></Route>
-          <Route path='update' element={<Add></Add>}></Route>
-          <Route path='/dashboard/users' element={<Users></Users>}></Route>
-          <Route path='/dashboard/myorders' element={<MyOrders></MyOrders>}></Route>
-          <Route path='/dashboard/addreview' element={<Review></Review>}></Route>
-          <Route path='/dashboard/manageallorders' element={<ManageOrders></ManageOrders>}></Route>
-          <Route path='/dashboard/addproduct' element={<AddProduct></AddProduct>}></Route>
-          <Route path='/dashboard/manageproduct' element={<Manage></Manage>}></Route>
+        <Route path='/dashboard' element={<RequireAuth><Dashboard></Dashboard></RequireAuth>}>
+          <Route path='/dashboard/myprofile' element={<RequireAuth><MyProfile></MyProfile></RequireAuth>}></Route>
+          <Route path='update' element={<RequireAuth><Add></Add></RequireAuth>}></Route>
+          <Route path='/dashboard/users' element={<RequireAuth><Users></Users></RequireAuth>}></Route>
+          <Route path='/dashboard/myorders' element={<RequireAuth><MyOrders></MyOrders></RequireAuth>}></Route>
+          <Route path='/dashboard/addreview' element={<RequireAuth><Review></Review></RequireAuth>}></Route>
+          <Route path='/dashboard/manageallorders' element={<RequireAuth><ManageOrders></ManageOrders></RequireAuth>}></Route>
+          <Route path='/dashboard/addproduct' element={<RequireAuth><AddProduct></AddProduct></RequireAuth>}></Route>
+          <Route path='/dashboard/manageproduct' element={<RequireAuth><Manage></Manage></RequireAuth>}></Route>
         </Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
       </Routes>
