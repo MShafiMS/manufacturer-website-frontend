@@ -16,6 +16,7 @@ import Manage from './Pages/Dashboard/Manage';
 import AddProduct from './Pages/Dashboard/AddProduct';
 import Purchase from './Pages/Purchase/Purchase';
 import Add from './Pages/Dashboard/Add';
+import MyPortfolio from './Pages/Dashboard/MyPortfolio/MyPortfolio';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<SignUp></SignUp>}></Route>
+        <Route path='myportfolio' element={<MyPortfolio></MyPortfolio>}></Route>
         <Route path='/products/:purchaseId' element={<RequireAuth>
           <Purchase></Purchase>
         </RequireAuth>}></Route>

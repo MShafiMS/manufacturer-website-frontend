@@ -30,32 +30,32 @@ const Hero = () => {
           <div className="lg:mx-20">
             <h1 className="text-5xl font-bold">Who We Are !</h1>
             <p className="py-6">
-              We are working for your loveable furnitures. Which are suits your
-              personality. You find best and qualityful furniture from us.
+              We are working for your best tools. Which are suits your
+              personality. You find best and qualityful tools from us.
             </p>
             <h1 className="text-3xl font-semibold flex">
               <BadgeCheckIcon className="h-10 w-10 text-primary"></BadgeCheckIcon>{" "}
-              Trusted Furniture Items
+              Trusted Tools Items
             </h1>
             <p className="py-6">
-              Our every furniture items are very qualitiful. We give guarantee
-              for every furniture
+              Our every tools items are very qualitiful. We give guarantee
+              for every tools
             </p>
             <h1 className="text-3xl font-semibold flex">
               <UsersIcon className="h-10 w-10 text-primary"></UsersIcon>{" "}
               Professional Service
             </h1>
             <p className="py-6">
-              Our every furniture items are very qualitiful. We give guarantee
-              for every furniture
+              Our every tools items are very qualitiful. We give guarantee
+              for every tools
             </p>
             <h1 className="text-3xl font-semibold flex">
               <ShieldCheckIcon className="h-10 w-10 text-primary"></ShieldCheckIcon>{" "}
               100% Safe Transaction
             </h1>
             <p className="py-6">
-              Our every furniture items are very qualitiful. We give guarantee
-              for every furniture
+              Our every tools items are very qualitiful. We give guarantee
+              for every tools
             </p>
           </div>
         </div>
