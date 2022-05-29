@@ -73,16 +73,12 @@ const Myorders = () => {
       </tr>
     </thead>
                 {
-                    products?.map(item => <div style={{ backgroundColor: ' rgb(50, 48, 48)' }} className=' row text-white fw-bold'>
+                    products?.map(item => <div className=' row text-white fw-bold'>
                         <tbody>
       <tr>
         <td>
           <div className="flex items-center space-x-3">
           <div class="avatar">
-              <div class="mask mask-squircle w-12 h-12">
-                <img src={user?.photoURL}
-                alt="Avatar Tailwind CSS Component" />
-              </div>
             </div>
             <div>
               <div className="font-bold">{item.name}</div>
@@ -99,7 +95,7 @@ const Myorders = () => {
         <th>
         {
                             (item.price && !item.paid) && <>
-                                <Link to={`/dashboard/payment/${item._id}`} className='btn btn-primary btn-xs'>Pay</Link>
+                                <Link to={`/dashboard/payment/${item._id}`} className='btn mr-2 btn-primary btn-xs'>Pay</Link>
                                 <button onClick={() => deleteItems(item._id)} className='btn btn-secondary btn-xs'>Delete</button>
                             </>
                         }

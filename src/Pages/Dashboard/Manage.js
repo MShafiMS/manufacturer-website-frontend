@@ -47,7 +47,7 @@ const Manage = () => {
         </div>
       ) : (
         <div className="container">
-          <div className="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 row-cols-1 pt-4 pb-4">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:mx-8">
             {products?.map((product) => (
               <ProAvatar
                 deleteItem={deleteItem}
