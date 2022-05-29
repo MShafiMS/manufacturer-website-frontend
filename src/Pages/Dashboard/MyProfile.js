@@ -33,26 +33,26 @@ const MyProfile = () => {
           <div className="card-actions justify-end">
             <div className="mx-auto">
               {product.education ? (
-                <p>Education : {product.education}</p>
+                <p className="text-center">Education : {product.education}</p>
               ) : (
-                <p>Education: Please Set Your Education</p>
+                <p className="text-center">Education: Please Set Your Education</p>
               )}
               {product.location ? (
-                <p>Location : {product.location}</p>
+                <p className="text-center">Location : {product.location}</p>
               ) : (
-                <p>Location: Please Set Your Location</p>
+                <p className="text-center">Location: Please Set Your Location</p>
               )}
               {product.phoneNumber ? (
-                <p>Phone Number : {product.phoneNumber}</p>
+                <p className="text-center">Phone Number : {product.phoneNumber}</p>
               ) : (
-                <p>Phone Number: Please Set Your Phone Number</p>
+                <p className="text-center">Phone: Please Set Your Phone Number</p>
               )}
               {product.linkedIn ? (
-                <a>LinkedIn Link : {product.linkedIn}</a>
+                <a className="text-center ml-20 font-semibold text-accent text-xl" href={product.linkedIn}>LinkedIn Profile</a>
               ) : (
-                <p>LinkedIn Link: Please Set Your LinkedIn Link</p>
+                <p className="text-center">LinkedIn Link: Please Set Your LinkedIn Link</p>
               )}
-              <Link id="btnn" to="/dashboard/update" className="btn btn-secondary text-white">
+              <Link id="btnn" to="/dashboard/update" className="btn btn-secondary text-white mx-20 mt-2">
                 Update Profile
               </Link>
             </div>

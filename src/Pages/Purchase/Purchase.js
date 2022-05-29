@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Form } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -21,6 +22,39 @@ const Purchase = () => {
         setProducts(data);
       });
   }, [purchaseId]);
+
+
+  const submitForm = event => {
+    event.preventDefault();
+    const addresses = addresss.current.value;
+    const phoneNumbers = phoneNo.current.value;
+    const quantiti = quantities2.current.value;
+
+    const order = {
+        name: user?.displayName,
+        email: user?.email,
+        productName: products?.name,
+        price: products?.price,
+        quantity: parseInt(quantiti),
+        address: addresses,
+        phoneNumber: phoneNumbers
+    }
+    fetch('https://vast-beyond-32749.herokuapp.com/order', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(order),
+    }, [reload])
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            toast.success('order is successful!!!');
+            event.target.reset();
+            setReload(!reload);
+        })
+}
+
 
   const increase = () => {
     quantities.current.value = parseInt(quantities.current.value) + 1;
@@ -131,6 +165,7 @@ const Purchase = () => {
       <div className="card flex-shrink-0 mx-auto w-full max-w-sm shadow-2xl bg-base-100">
         <div className="card-body">
             <h1 className="font-bold text-3xl text-secondary">Purchase Form</h1>
+          <Form  onSubmit={submitForm} >
           <div className="form-control">
             <label className="label">
               <span className="label-text">Name</span>
@@ -211,8 +246,9 @@ const Purchase = () => {
           />
           </div>
           <div className="form-control mt-6">
-            <button className="btn btn-secondary">Complete Purchase</button>
+            <button  ref={buttondisable} className="btn btn-secondary">Complete Purchase</button>
           </div>
+          </Form>
         </div>
       </div>
     </div>
