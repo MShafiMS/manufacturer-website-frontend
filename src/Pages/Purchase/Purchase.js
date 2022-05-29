@@ -39,7 +39,7 @@ const Purchase = () => {
         address: addresses,
         phoneNumber: phoneNumbers
     }
-    fetch('https://vast-beyond-32749.herokuapp.com/order', {
+    fetch('http://localhost:5000/order', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

@@ -10,8 +10,8 @@ const MyPortfolio = () => {
 align-items-center"
         >
           <div className="mt-4">
-            <div class="avatar">
-              <div class="w-24 mask mask-hexagon">
+            <div className="avatar">
+              <div className="w-24 mask mask-hexagon">
                 <img src="https://lh3.googleusercontent.com/a-/AOh14GgmvYYCNHapX35tDKfoH1d3hHBJBCY-LZ_59sD29Q=s96-c" />
               </div>
             </div>

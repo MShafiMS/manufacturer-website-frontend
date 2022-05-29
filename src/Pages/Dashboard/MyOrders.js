@@ -10,6 +10,8 @@ const Myorders = () => {
     const [products, setProduct] = useState([]);
     const [loading, setloading] = useState(true);
     const email = user?.email;
+    const photo = user?.photoURL;
+    const name = user?.displayName;
 
     useEffect(() => {
         if (user) {
@@ -56,41 +58,64 @@ const Myorders = () => {
 
     }
     return (
-        <>
-            {loading ? <div className='d-flex justify-content-center align-items-center mt-5'>
-                < Spinner animation="grow" variant="light" />         </div > : <div className='container mt-5 mb-5'>
-                <div style={{ backgroundColor: ' rgb(50, 48, 48)' }} className='row text-whute fw-bold'>
-                    <p className='col'>Product Name</p>
-                    <p className='col'>Product Price</p>
-                    <p className='col'>Product Quantity</p>
-                    <p className='col'>User Email</p>
-                    <p className='col'>Action</p>
-                    <hr />
-                </div>
+        
+        <div class="mx-40 w-full">
+          <table className="table w-full">
+            
+          {loading ? <div className='d-flex justify-content-center align-items-center mt-5'>
+                < Spinner animation="grow" variant="light" />         </div > : <div className='mx-auto mt-5 mb-5'>
+                <thead className='mx-auto'>
+      <tr>
+        <th >User</th>
+        <th>Product Name / Price</th>
+        <th>Quantity</th>
+        <th>Action</th>
+      </tr>
+    </thead>
                 {
                     products?.map(item => <div style={{ backgroundColor: ' rgb(50, 48, 48)' }} className=' row text-white fw-bold'>
-                        <p className='col ' >{item.productName}</p>
-                        <p className='col '>{item.price}</p>
-                        <p className='col '>{item.quantity}</p>
-                        <p className='col '>{item.email}</p>
-                        <p className='col '>{
+                        <tbody>
+      <tr>
+        <td>
+          <div className="flex items-center space-x-3">
+          <div class="avatar">
+              <div class="mask mask-squircle w-12 h-12">
+                <img src={user?.photoURL}
+                alt="Avatar Tailwind CSS Component" />
+              </div>
+            </div>
+            <div>
+              <div className="font-bold">{item.name}</div>
+              <div className="text-sm opacity-50">{item.email}</div>
+            </div>
+          </div>
+        </td>
+        <td>
+        {item.productName}
+          
+          <span className="badge badge-accent ml-4">${item.price}</span>
+        </td>
+        <td>{item.quantity}</td>
+        <th>
+        {
                             (item.price && !item.paid) && <>
-                                <Link to={`/dashboard/payment/${item._id}`} className='btn btn-dark fw-bold'>Pay</Link>
-                                <button onClick={() => deleteItems(item._id)} className='btn btn-danger'>Delete</button>
+                                <Link to={`/dashboard/payment/${item._id}`} className='btn btn-primary btn-xs'>Pay</Link>
+                                <button onClick={() => deleteItems(item._id)} className='btn btn-secondary btn-xs'>Delete</button>
                             </>
                         }
                             {
                                 (item.price && item.paid) && <p>Transaction ID: {item?.transactionId}</p>
                             }
-                        </p>
-                        <hr />
+        </th>
+      </tr>
+    </tbody>
 
                     </div>)
                 }
             </div>
             }
-        </>
-
+          </table>
+        </div>
 
 
 
@@ -100,91 +125,3 @@ const Myorders = () => {
 
 export default Myorders;
 
-<div class="overflow-x-auto w-full">
-  <table class="table w-full">
-    {/* <!-- head --> */}
-    <thead>
-      <tr>
-        <th>
-          <label>
-            <input type="checkbox" class="checkbox" />
-          </label>
-        </th>
-        <th>Name</th>
-        <th>Job</th>
-        <th>Favorite Color</th>
-        <th>fdsjfjdfj</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>
-          <div class="flex items-center space-x-3">
-            <div class="avatar">
-              <div class="mask mask-squircle w-12 h-12">
-                <img src="/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
-              </div>
-            </div>
-            <div>
-              <div class="font-bold">Hart Hagerty</div>
-              <div class="text-sm opacity-50">United States</div>
-            </div>
-          </div>
-        </td>
-        <td>
-          Zemlak, Daniel and Leannon
-          <br>
-          <span class="badge badge-ghost badge-sm">Desktop Support Technician</span>
-        </td>
-        <td>Purple</td>
-        <th>
-          <button class="btn btn-ghost btn-xs">details</button>
-        </th>
-      </tr>
-    </tbody>
-    {/* <!-- foot --> */}
-    <tfoot>
-      <tr>
-        <th></th>
-        <th>Name</th>
-        <th>Job</th>
-        <th>Favorite Color</th>
-        <th></th>
-      </tr>
-    </tfoot>
-    
-  </table>
-</div>
-
-
-{
-                    products?.map(item => <div style={{ backgroundColor: ' rgb(50, 48, 48)' }} className=' row text-white fw-bold'>
-                        <tbody>
-      <tr>
-        <td>
-          <div class="flex items-center space-x-3">
-            <div class="avatar">
-              <div class="mask mask-squircle w-12 h-12">
-                <img src="/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
-              </div>
-            </div>
-            <div>
-              <div class="font-bold">{item.productName}</div>
-              <div class="text-sm opacity-50">United States</div>
-            </div>
-          </div>
-        </td>
-        <td>
-          Zemlak, Daniel and Leannon
-          <br>
-          <span class="badge badge-ghost badge-sm">Desktop Support Technician</span>
-        </td>
-        <td>Purple</td>
-        <th>
-          <button class="btn btn-ghost btn-xs">details</button>
-        </th>
-      </tr>
-    </tbody>
-
-                    </div>)
-                }
