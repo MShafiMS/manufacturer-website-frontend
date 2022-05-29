@@ -38,7 +38,7 @@ const AddProduct = () => {
 
         //add item with conditional statement
         if (name && img && description && price && minOrderQuantity && availableQuantiti) {
-            fetch('http://localhost:5000/products', {
+            fetch('https://aqueous-cove-16160.herokuapp.com/products', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

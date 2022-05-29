@@ -28,7 +28,7 @@ const Review = () => {
     //add item with conditional statement
     if (rating && description) {
       fetch(
-        "http://localhost:5000/reviews",
+        "https://aqueous-cove-16160.herokuapp.com/reviews",
         {
           method: "POST",
           headers: {

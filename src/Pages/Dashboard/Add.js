@@ -15,7 +15,7 @@ const Add = () => {
   const [product, setProduct] = useState([]);
   const [loading1, setloading1] = useState(true);
   useEffect(() => {
-    fetch(`http://localhost:5000/myprofile/${user?.email}`)
+    fetch(`https://aqueous-cove-16160.herokuapp.com/myprofile/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setProduct(data);
@@ -42,7 +42,7 @@ const Add = () => {
     //add item with conditional statement
     if (educations || locationss || phoneno || linkins)
       fetch(
-        `http://localhost:5000/myprofile/${user?.email}`,
+        `https://aqueous-cove-16160.herokuapp.com/myprofile/${user?.email}`,
         {
           method: "PUT",
           headers: {

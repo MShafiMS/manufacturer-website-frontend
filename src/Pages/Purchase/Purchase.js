@@ -16,7 +16,7 @@ const Purchase = () => {
   const buttondisable = useRef();
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/products/${purchaseId}`)
+    fetch(`https://aqueous-cove-16160.herokuapp.com/products/${purchaseId}`)
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
@@ -39,7 +39,7 @@ const Purchase = () => {
         address: addresses,
         phoneNumber: phoneNumbers
     }
-    fetch('http://localhost:5000/order', {
+    fetch('https://aqueous-cove-16160.herokuapp.com/order', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
