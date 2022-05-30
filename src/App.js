@@ -20,6 +20,7 @@ import MyPortfolio from './Pages/Dashboard/MyPortfolio/MyPortfolio';
 import Users from './Pages/Dashboard/Users';
 import NotFound from './Pages/NotFound/NotFound';
 import Payment from './Pages/Payment/Payment';
+import Shop from './Pages/Home/Shop';
 function App() {
   return (
     <div className='bg-base-200'>
@@ -28,6 +29,7 @@ function App() {
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<SignUp></SignUp>}></Route>
+        <Route path='/shop' element={<Shop></Shop>}></Route>
         <Route path='myportfolio' element={<MyPortfolio></MyPortfolio>}></Route>
         <Route path='/products/:purchaseId' element={<RequireAuth>
           <Purchase></Purchase>

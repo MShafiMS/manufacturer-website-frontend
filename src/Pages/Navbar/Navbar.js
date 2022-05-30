@@ -54,7 +54,7 @@ const Navbar = () => {
           </ul>
         </div>
         <Link to="/">
-          <div className="btn btn-ghost flex font-bold text-primary text-2xl items-center grid-flow-col-2">
+          <div className="flex font-bold text-2xl items-center grid-flow-col-2">
             <img id="fdd" className="w-8 h-8 mr-2 lg:ml-10" src={logo} alt="" /> 
             <span className="">DEWALT</span>
           </div>
