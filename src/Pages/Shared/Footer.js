@@ -1,16 +1,19 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import logo from "../../logo.png";
 
 const Footer = () => {
+  const today = new Date();
+    const year = today.getFullYear();
   return (
     <div>
       <footer className="footer p-10 bg-base-300 text-base-content">
         <div>
           <span className="footer-title">Services</span>
-          <a className="link link-hover">Branding</a>
-          <a className="link link-hover">Design</a>
-          <a className="link link-hover">Marketing</a>
-          <a className="link link-hover">Advertisement</a>
+          <Link to={'/shop'} className="link link-hover">Shop Now</Link>
+          <Link to={'/blogs'} className="link link-hover">Blogs</Link>
+          <Link to={'/dashboard/myprofile'} className="link link-hover">Update Your Profile</Link>
+          <Link to={'/dashboard/myorders'} className="link link-hover">Your Orders</Link>
         </div>
         <div>
           <span className="footer-title">Company</span>
@@ -47,8 +50,8 @@ const Footer = () => {
       <div>
         <footer className="footer items-center p-4 bg-base-300">
           <div className="items-center grid-flow-col">
-            <img width="36" height="36" src={logo} alt="" />
-            <p>Copyright © 2022 - All right reserved</p>
+            <img width="36" height="36" className="w-16 h-8 bg-black" src={logo} alt="" />
+            <p>Copyright © {year} Dewalt Tools Manufacturer - All right reserved</p>
           </div>
           <div className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
             <a>

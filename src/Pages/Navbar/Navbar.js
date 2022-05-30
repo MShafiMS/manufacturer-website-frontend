@@ -1,3 +1,4 @@
+import { UserIcon } from "@heroicons/react/solid";
 import { signOut } from "firebase/auth";
 import React from "react";
 import { Nav } from "react-bootstrap";
@@ -21,19 +22,7 @@ const Navbar = () => {
         <Link to="/blogs">Blogs</Link>
       </li>
       <li>{user ? <Link to="/myportfolio">My Portfolio</Link> : <></>}</li>
-      <li>
-        {user ? (
-          <></>
-        ) : (
-          <Nav.Link
-            as={Link}
-            to="/login"
-            className="fs-4 btn btn-primary text-white"
-          >
-            Login
-          </Nav.Link>
-        )}
-      </li>
+      
     </>
   );
   return (
@@ -65,7 +54,7 @@ const Navbar = () => {
         </div>
         <Link to="/">
           <div className="items-center grid-flow-col-2 flex">
-            <img className="w-16 h-8 lg:ml-10" src={logo} alt="" />
+            <img className="w-16 h-8 lg:ml-10 bg-black" src={logo} alt="" />
           </div>
         </Link>
       </div>
@@ -87,7 +76,7 @@ const Navbar = () => {
             <li>
               <Link to={'/dashboard/myprofile'} className="justify-between">
                 Profile
-                <span className="badge">Update</span>
+                <span className="badge badge-primary">Update</span>
               </Link>
             </li>
             <li>
@@ -96,10 +85,36 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <a onClick={handleSignOut}>Logout</a>
+              <a className="btn btn-error  text-white" onClick={handleSignOut}>Logout</a>
             </li>
           </ul>
-        </div>) : (<></>)}
+        </div>) : (<div className="dropdown dropdown-end">
+          <label tabindex="0" className="btn btn-ghost btn-circle avatar">
+            <div className="w-10 rounded-full">
+              <UserIcon></UserIcon>
+            </div>
+          </label>
+          <ul
+            tabindex="0"
+            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+          >
+            <li>
+              <Link to={'/dashboard/myprofile'} className="justify-between">
+                Profile
+                <span className="badge badge-primary">Update</span>
+              </Link>
+            </li>
+            <li>
+            <Nav.Link
+            as={Link}
+            to="/login"
+            className="btn mt-2 btn-primary text-white"
+          >
+            Login
+          </Nav.Link>
+            </li>
+          </ul>
+        </div>)}
       </div>
     </div>
   );

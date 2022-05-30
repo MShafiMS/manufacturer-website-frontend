@@ -5,6 +5,7 @@ import Hero from './Hero/Hero';
 import Products from './Products/Products';
 import Review from '../Dashboard/Review';
 import UserRvw from './UserReviews/UserRvw/UserRvw';
+import Contact from './Contact/Contact';
 
 const Home = () => {
     return (
@@ -15,6 +16,7 @@ const Home = () => {
             <Hero></Hero>
             <Statistic></Statistic>
             <UserRvw></UserRvw>
+            <Contact></Contact>
             </div>
         </div>
     );

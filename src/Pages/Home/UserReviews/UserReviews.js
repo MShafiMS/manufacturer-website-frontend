@@ -43,7 +43,7 @@ const UserReviews = ({ review }) => {
                 className="mask mask-star-2 bg-orange-400"
               />
             </div>
-            <h5 className=" text-white">{ratings}</h5>
+            <h5 className="">{ratings}</h5>
           </div>
         </div>
       </div>

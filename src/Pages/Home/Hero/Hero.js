@@ -14,8 +14,8 @@ const Hero = () => {
       <div className="hero min-h-screen">
         <div className="hero-content m-0 flex-col lg:flex-row">
           <div className="indicator">
-            <div className="indicator-item indicator-top lg:indicator-middle  mr-14 lg:mt-36 ">
-              <div className="card lg:card-side bg-violet-900 shadow-lg shadow-violet-900/60 ">
+            <div className="indicator-item indicator-top lg:indicator-middle  mr-20 mt-8 lg:mt-36 ">
+              <div className="card lg:card-side bg-primary shadow-lg shadow-primary">
                 <div className="card-body">
                   <h2 className="text-4xl font-bold text-center text-white">32+</h2>
                   <p className="text-center font-medium text-white">Years Experience</p>

@@ -19,6 +19,7 @@ import Add from './Pages/Dashboard/Add';
 import MyPortfolio from './Pages/Dashboard/MyPortfolio/MyPortfolio';
 import Users from './Pages/Dashboard/Users';
 import NotFound from './Pages/NotFound/NotFound';
+import Payment from './Pages/Payment/Payment';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Route path='/products/:purchaseId' element={<RequireAuth>
           <Purchase></Purchase>
         </RequireAuth>}></Route>
+        <Route path='/payment/:paymentId' element={<RequireAuth><Payment></Payment></RequireAuth>}></Route>
         <Route path='/dashboard' element={<RequireAuth><Dashboard></Dashboard></RequireAuth>}>
           <Route path='/dashboard/myprofile' element={<RequireAuth><MyProfile></MyProfile></RequireAuth>}></Route>
           <Route path='update' element={<RequireAuth><Add></Add></RequireAuth>}></Route>
@@ -40,7 +42,9 @@ function App() {
           <Route path='/dashboard/addreview' element={<RequireAuth><Review></Review></RequireAuth>}></Route>
           <Route path='/dashboard/manageallorders' element={<RequireAuth><ManageOrders></ManageOrders></RequireAuth>}></Route>
           <Route path='/dashboard/addproduct' element={<RequireAuth><AddProduct></AddProduct></RequireAuth>}></Route>
-          <Route path='/dashboard/manageproduct' element={<RequireAuth></RequireAuth>}></Route>
+          <Route path='/dashboard/manageproduct' element={<RequireAuth>
+            <Manage></Manage>
+          </RequireAuth>}></Route>
         </Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>

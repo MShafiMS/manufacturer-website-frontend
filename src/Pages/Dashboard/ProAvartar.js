@@ -39,7 +39,7 @@ const ProAvatar = ({ product, deleteItem }) => {
           <div className="card-actions">
           <button
           onClick={() => deleteItems(_id)}
-          className="btn btn-primary rounded-pill pt-2 pb-2 ps-4 pe-4"
+          className="btn btn-secondary rounded-pill pt-2 pb-2 ps-4 pe-4"
         >
           Delete
         </button>

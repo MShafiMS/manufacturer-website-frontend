@@ -36,6 +36,7 @@ const ManageOrders = () => {
   return (
     <div>
       <h1 className="font-bold text-4xl text-secondary text-center my-4">Manage Orders</h1>
+      <div className="overflow-x-auto">
       <table className="table w-full">
         <thead>
           <tr>
@@ -47,7 +48,7 @@ const ManageOrders = () => {
         </thead>
         <tbody>
           {products?.map((item) => (
-            <div className=" row text-white fw-bold">
+            <div className=" ro font-bold">
               <tbody>
                 <tr>
                   <td>
@@ -80,6 +81,7 @@ const ManageOrders = () => {
           ))}
         </tbody>
       </table>
+      </div>
     </div>
   );
 };

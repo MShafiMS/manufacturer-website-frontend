@@ -23,38 +23,39 @@ const Purchase = () => {
       });
   }, [purchaseId]);
 
-
-  const submitForm = event => {
+  const submitForm = (event) => {
     event.preventDefault();
     const addresses = addresss.current.value;
     const phoneNumbers = phoneNo.current.value;
     const quantiti = quantities2.current.value;
 
     const order = {
-        name: user?.displayName,
-        email: user?.email,
-        productName: products?.name,
-        price: products?.price,
-        quantity: parseInt(quantiti),
-        address: addresses,
-        phoneNumber: phoneNumbers
-    }
-    fetch('https://aqueous-cove-16160.herokuapp.com/order', {
-        method: 'POST',
+      name: user?.displayName,
+      email: user?.email,
+      productName: products?.name,
+      price: products?.price,
+      quantity: parseInt(quantiti),
+      address: addresses,
+      phoneNumber: phoneNumbers,
+    };
+    fetch(
+      "https://aqueous-cove-16160.herokuapp.com/order",
+      {
+        method: "POST",
         headers: {
-            'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(order),
-    }, [reload])
-        .then(response => response.json())
-        .then(data => {
-            
-            toast.success('order is successful!!!');
-            event.target.reset();
-            setReload(!reload);
-        })
-}
-
+      },
+      [reload]
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        toast.success("order is successful!!!");
+        event.target.reset();
+        setReload(!reload);
+      });
+  };
 
   const increase = () => {
     quantities.current.value = parseInt(quantities.current.value) + 1;
@@ -69,7 +70,7 @@ const Purchase = () => {
       buttondisable.current.disabled = true;
     } else {
       buttondisable.current.disabled = false;
-      toast.success('success');
+      toast.success("success");
     }
   };
 
@@ -137,99 +138,126 @@ const Purchase = () => {
                 +
               </button>
             </div>
+            
           </div>
+          <label for="my-modal-3" class="btn text-white font-bold btn-secondary modal-button">
+        Place Order
+      </label>
         </div>
       </div>
+      {/* <!-- The button to open modal --> */}
+      
 
-      <div className="card flex-shrink-0 mx-auto w-full max-w-sm shadow-2xl bg-base-100">
+      {/* <!-- Put this part before </body> tag --> */}
+      <input type="checkbox" id="my-modal-3" class="modal-toggle" />
+      <div class="modal">
+        <div class="modal-box relative">
+          <label
+            for="my-modal-3"
+            class="btn btn-sm btn-secondary btn-circle absolute right-2 top-2"
+          >
+            ✕
+          </label>
+          <div className="card flex-shrink-0 mx-auto w-full max-w-sm shadow-2xl bg-base-100">
         <div className="card-body">
-            <h1 className="font-bold text-3xl text-secondary">Purchase Form</h1>
-          <Form  onSubmit={submitForm} >
-          <div className="form-control">
-            <label className="label">
-              <span className="label-text">Name</span>
-            </label>
-            <input
-            type="text"
-            className="input input-bordered input-secondary max-w-xs"
-            value={user.displayName}
-            readOnly
-            autoFocus
-          />
-          </div>
-          <div className="form-control">
-            <label className="label">
-              <span className="label-text">Email</span>
-            </label>
-            <input
-            type="text"
-            className="input input-bordered input-secondary max-w-xs"
-            value={user.email}
-            readOnly
-            autoFocus
-          />
-          </div>
-          <div className="form-control">
-            <label className="label">
-              <span className="label-text">Products Name</span>
-            </label>
-            <input
-            type="text"
-            className="input input-bordered input-secondary max-w-xs"
-            value={products?.name}
-            readOnly
-            autoFocus
-          />
-          </div>
-          <div className="form-control">
-            <label className="label">
-              <span className="label-text">Products Price</span>
-            </label>
-            <input
-            type="text"
-            className="input input-bordered input-secondary max-w-xs"
-            value={products?.price}
-            readOnly
-            autoFocus
-          />
-          </div>
-          <div className="form-control">
-            <label className="label">
-              <span className="label-text">Products Quantity</span>
-            </label>
-            <input
-            type="text"
-            className="input input-bordered input-secondary max-w-xs"
-            ref={quantities2}
+          <h1 className="font-bold text-3xl text-secondary">Purchase Form</h1>
+          <Form onSubmit={submitForm}>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Name</span>
+              </label>
+              <input
+                type="text"
+                className="input input-bordered input-secondary max-w-xs"
+                value={user.displayName}
+                readOnly
+                autoFocus
+              />
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Email</span>
+              </label>
+              <input
+                type="text"
+                className="input input-bordered input-secondary max-w-xs"
+                value={user.email}
+                readOnly
+                autoFocus
+              />
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Products Name</span>
+              </label>
+              <input
+                type="text"
+                className="input input-bordered input-secondary max-w-xs"
+                value={products?.name}
+                readOnly
+                autoFocus
+              />
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Products Price</span>
+              </label>
+              <input
+                type="text"
+                className="input input-bordered input-secondary max-w-xs"
+                value={products?.price}
+                readOnly
+                autoFocus
+              />
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Products Quantity</span>
+              </label>
+              <input
+                type="text"
+                className="input input-bordered input-secondary max-w-xs"
+                ref={quantities2}
                 value={products.minimumOrderQuantity}
-            readOnly
-            autoFocus
-          />
-          </div>
-          <div className="form-control">
-            <label className="label">
-              <span className="label-text">Enter Address</span>
-            </label>
-            <input
-              ref={addresss} type="text" required  placeholder="Enter Address"
-            className="input input-bordered input-secondary max-w-xs"
-          />
-          </div>
-          <div className="form-control">
-            <label className="label">
-              <span className="label-text">Enter Phone Number</span>
-            </label>
-            <input
-             ref={phoneNo} required type="text" placeholder="Enter Phone Number"
-            className="input input-bordered input-secondary max-w-xs"
-          />
-          </div>
-          <div className="form-control mt-6">
-            <button  ref={buttondisable} className="btn btn-secondary">Complete Purchase</button>
-          </div>
+                readOnly
+                autoFocus
+              />
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Enter Address</span>
+              </label>
+              <input
+                ref={addresss}
+                type="text"
+                required
+                placeholder="Enter Address"
+                className="input input-bordered input-secondary max-w-xs"
+              />
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Enter Phone Number</span>
+              </label>
+              <input
+                ref={phoneNo}
+                required
+                type="text"
+                placeholder="Enter Phone Number"
+                className="input input-bordered input-secondary max-w-xs"
+              />
+            </div>
+            <div className="form-control mt-6">
+              <button ref={buttondisable} className="btn btn-secondary text-white">
+                Purchase
+              </button>
+            </div>
           </Form>
         </div>
       </div>
+        </div>
+      </div>
+      
       <ToastContainer></ToastContainer>
     </div>
   );

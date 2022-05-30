@@ -18,7 +18,7 @@ align-items-center"
             <h1 className="font-semibold text-2xl">Muhammad Shafi</h1>
             <p className="font-semibold">shahedali734@gmail.com</p>
             <h4 className="font-semibold">Patiya, Chattogram</h4>
-            <h4 className="font-semibold mt-3  text-xl text-success">Educational Background</h4>
+            <h4 className="font-semibold mt-3  text-xl  text-secondary">Educational Background</h4>
             <p className="font-semibold">
               BBA Hon's - Department of Management (2019 - Present) <br></br>
               <span className="font-semibold">
@@ -28,28 +28,28 @@ align-items-center"
             </p>
           </div>
         </div>
-        <h1 className="font-bold text-center text-xl text-success mt-3">My Skilss</h1>
+        <h1 className="font-bold text-center text-xl text-secondary mt-3">My Skills</h1>
         <div
           className="d-flex flex-column justify-content-center
 align-items-center"
         >
           <div className="">
             <p className="font-semibold">
-              <span className="text-success">Expertise: </span>JavaScript, ES6,
+              <span className=" text-secondary">Expertise: </span>JavaScript, ES6,
               React.js,, React Bootstrap, HTML, CSS, Bootstrap,
             </p>
             <p className="font-semibold">
-              <span className="text-success">Comfortable: </span>Node.js, Express.js,
+              <span className=" text-secondary">Comfortable: </span>Node.js, Express.js,
               MongoDB,Rest API, Firebase authentication,Tailwind CSS.
             </p>
             <p className="font-semibold ">
-              <span className="text-success">Tools: </span>VS Code,
+              <span className=" text-secondary">Tools: </span>VS Code,
               GitHub, Create React App, NPM, Chrome
               Dev tool, Firebase, Netlify, Heroku.
             </p>
           </div>
         </div>
-        <h1 className="font-bold text-xl text-success text-center mt-3">
+        <h1 className="font-bold text-xl text-center mt-3">
           Links of three of my projects{" "}
         </h1>
         <div
@@ -59,9 +59,9 @@ align-items-center"
           <div className="">
             <a
               className="text-decoration-none text-xl font-bold text-secondary"
-              href="https://warehose-management-website.web.app/"
+              href="https://tools-manufacturer-f4df9.web.app/"
             >
-              Smart Electronics
+              Dewalt Tools Manufacturer
             </a>
             <br />
             <a
