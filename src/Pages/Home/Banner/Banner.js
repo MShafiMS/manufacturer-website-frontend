@@ -54,7 +54,7 @@ const Banner = () => {
             <p class="mb-5">
             Join MyDEWALT to register your tools and help protect your investment, rate and review products you love, and learn about the newest DEWALT tools and accessories.
             </p>
-            <Link to={'/shop'} class="btn btn-primary">Get Started</Link>
+            <Link to={'/shop'} class="btn btn-primary">Shop Now</Link>
           </div>
         </div>
       </div>
