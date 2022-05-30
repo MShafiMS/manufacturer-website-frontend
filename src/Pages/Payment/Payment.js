@@ -11,7 +11,7 @@ const Payment = () => {
     const [myorder, setProducts] = useState([]);
     useEffect(() => {
 
-        fetch(`http://localhost:5000/myorder/${id}`)
+        fetch(`https://aqueous-cove-16160.herokuapp.com/myorder/${id}`)
             .then(res => res.json())
             .then(data => {
                 setProducts(data);

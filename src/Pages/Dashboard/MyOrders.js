@@ -14,7 +14,7 @@ const Myorders = () => {
 
   useEffect(() => {
     if (user) {
-      fetch(`http://localhost:5000/myorder?email=${email}`, {
+      fetch(`https://aqueous-cove-16160.herokuapp.com/myorder?email=${email}`, {
         method: "GET",
         headers: {
           authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -40,7 +40,7 @@ const Myorders = () => {
     const proceed = window.confirm("Are you sure to delete this order?");
     if (proceed) {
       fetch(
-        `http://localhost:5000/order/${id}`,
+        `https://aqueous-cove-16160.herokuapp.com/order/${id}`,
         {
           method: "DELETE",
         },

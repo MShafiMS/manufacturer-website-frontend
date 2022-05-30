@@ -8,7 +8,7 @@ const MyProfile = () => {
     const [product, setProduct] = useState([]);
     const [loading, setloading] = useState(true);
     useEffect(() => {
-        fetch(`http://localhost:5000/myprofile/${user?.email}`)
+        fetch(`https://aqueous-cove-16160.herokuapp.com/myprofile/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setProduct(data);
