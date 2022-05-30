@@ -14,7 +14,7 @@ const Myorders = () => {
 
   useEffect(() => {
     if (user) {
-      fetch(`https://aqueous-cove-16160.herokuapp.com/myorder?email=${email}`, {
+      fetch(`http://localhost:5000/myorder?email=${email}`, {
         method: "GET",
         headers: {
           authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -40,7 +40,7 @@ const Myorders = () => {
     const proceed = window.confirm("Are you sure to delete this order?");
     if (proceed) {
       fetch(
-        `https://aqueous-cove-16160.herokuapp.com/order/${id}`,
+        `http://localhost:5000/order/${id}`,
         {
           method: "DELETE",
         },
@@ -100,7 +100,7 @@ const Myorders = () => {
                 {item.price && !item.paid && (
                   <>
                     <Link
-                      to={`/dashboard/payment/${item._id}`}
+                      to={`/payment/${item._id}`}
                       className="btn mr-2 btn-primary btn-xs"
                     >
                       Pay
@@ -145,7 +145,7 @@ const Myorders = () => {
                   </>
                 )}
                 {item.price && item.paid && (
-                  <p>Transaction ID: {item?.transactionId}</p>
+                  <p className="badge badge-success">Transaction ID: {item?.transactionId}</p>
                 )}
               </th>
             </tr>

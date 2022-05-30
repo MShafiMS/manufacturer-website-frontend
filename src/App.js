@@ -33,7 +33,7 @@ function App() {
         <Route path='/products/:purchaseId' element={<RequireAuth>
           <Purchase></Purchase>
         </RequireAuth>}></Route>
-        <Route path='/payment/:paymentId' element={<RequireAuth><Payment></Payment></RequireAuth>}></Route>
+        <Route path='/payment/:id' element={<RequireAuth><Payment></Payment></RequireAuth>}></Route>
         <Route path='/dashboard' element={<RequireAuth><Dashboard></Dashboard></RequireAuth>}>
           <Route path='/dashboard/myprofile' element={<RequireAuth><MyProfile></MyProfile></RequireAuth>}></Route>
           <Route path='update' element={<RequireAuth><Add></Add></RequireAuth>}></Route>

@@ -6,7 +6,7 @@ const UserRvw = () => {
   const [loading, setloading] = useState(true);
 
   useEffect(() => {
-    fetch("https://aqueous-cove-16160.herokuapp.com/reviews")
+    fetch("http://localhost:5000/reviews")
       .then((res) => res.json())
       .then((data) => {
         setReviews(data);
