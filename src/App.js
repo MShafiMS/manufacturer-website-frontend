@@ -20,7 +20,6 @@ import MyPortfolio from './Pages/Dashboard/MyPortfolio/MyPortfolio';
 import Users from './Pages/Dashboard/Users';
 import NotFound from './Pages/NotFound/NotFound';
 import Payment from './Pages/Payment/Payment';
-
 function App() {
   return (
     <div className='bg-base-200'>
