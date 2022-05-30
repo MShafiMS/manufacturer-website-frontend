@@ -50,7 +50,7 @@ const Footer = () => {
       <div>
         <footer className="footer items-center p-4 bg-base-300">
           <div className="items-center grid-flow-col">
-            <img width="36" height="36" className="w-16 h-8 bg-black" src={logo} alt="" />
+            <img width="36" height="36" className="" src={logo} alt="" />
             <p>Copyright © {year} Dewalt Tools Manufacturer - All right reserved</p>
           </div>
           <div className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
