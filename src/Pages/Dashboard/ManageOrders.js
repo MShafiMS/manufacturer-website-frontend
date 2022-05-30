@@ -34,56 +34,57 @@ const ManageOrders = () => {
     }
   }, [products]);
   return (
-    <div>
-      <h1 className="font-bold text-4xl text-secondary text-center my-4">Manage Orders</h1>
-      <div className="overflow-x-auto">
-      <table className="table w-full">
-        <thead>
+    <div className="overflow-x-auto">
+    <h1 className="font-bold text-4xl text-secondary text-center my-4">
+    Manage Orders
+    </h1>
+    <table className="table w-full">
+      <thead>
+        <tr>
+          <th className="text-secondary">User</th>
+          <th className="text-secondary">
+          Product Name
+          </th>
+          <th className="text-success">Price</th>
+          <th className="text-secondary">Quantity</th>
+          <th className="text-secondary ">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+      {products?.map((item) => (
           <tr>
-            <th className="text-secondary">User</th>
-            <th className="text-secondary">Product Name / Price</th>
-            <th className="text-secondary">Quantity</th>
-            <th className="text-secondary">Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {products?.map((item) => (
-            <div className=" ro font-bold">
-              <tbody>
-                <tr>
-                  <td>
-                    <div className="flex items-center space-x-3">
-                      <div>
-                        <div className="font-bold">{item.name}</div>
-                        <div className="text-sm opacity-50">{item.email}</div>
-                      </div>
-                    </div>
-                  </td>
-                  <td>
-                    {item.productName}
-
-                    <span className="badge badge-accent ml-4">
-                      ${item.price}
-                    </span>
-                  </td>
-                  <td>{item.quantity}</td>
-                  <td>
+            <td>
+              <div className="">
+                <div>
+                  <div className="font-bold">{item.name}</div>
+                  <div className="text-sm opacity-50">{item.email}</div>
+                </div>
+              </div>
+            </td>
+            <td className="font-semibold font-xl">
+              {item.productName}
+            </td>
+            <td className="font-semibold text-xl"><span className="text-success font-semibold text-xl pl-4">
+                {" "}
+                {item.price}
+              </span></td>
+            <td className="font-semibold text-xl">{item.quantity}</td>
+            <td>
                     {item.paid && (
-                      <button className="btn btn-dark fw-bold">Pending</button>
+                      <button className="btn btn-success fw-bold">Pending</button>
                     )}
                     {!item.paid && (
-                      <button className="btn btn-dark fw-bold">Unpaid</button>
+                      <button className="btn btn-dark text-white fw-bold">Unpaid</button>
                     )}
                   </td>
-                </tr>
-              </tbody>
-            </div>
-          ))}
-        </tbody>
-      </table>
-      </div>
-    </div>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
   );
 };
 
 export default ManageOrders;
+
+

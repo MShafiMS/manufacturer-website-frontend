@@ -158,7 +158,7 @@ const Purchase = () => {
           >
             ✕
           </label>
-          <div className="card flex-shrink-0 mx-auto w-full max-w-sm shadow-2xl bg-base-100">
+          <div className="flex-shrink-0 mx-auto w-full max-w-sm bg-base-100">
         <div className="card-body">
           <h1 className="font-bold text-3xl text-secondary">Purchase Form</h1>
           <Form onSubmit={submitForm}>

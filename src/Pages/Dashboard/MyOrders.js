@@ -63,10 +63,11 @@ const Myorders = () => {
           <tr>
             <th className="text-secondary">User</th>
             <th className="text-secondary">
-              Product Name / <span className="text-success"> Price</span>
+              Product Name
             </th>
+            <th className="text-success">Price</th>
             <th className="text-secondary">Quantity</th>
-            <th className="text-secondary">Action</th>
+            <th className="text-secondary ">Action</th>
           </tr>
         </thead>
         <tbody>
@@ -90,11 +91,11 @@ const Myorders = () => {
               </td>
               <td className="font-semibold font-xl">
                 {item.productName}
-                <span className="text-success font-semibold text-xl pl-4">
+              </td>
+              <td className="font-semibold text-xl"><span className="text-success font-semibold text-xl pl-4">
                   {" "}
                   {item.price}
-                </span>
-              </td>
+                </span></td>
               <td className="font-semibold text-xl">{item.quantity}</td>
               <th>
                 {item.price && !item.paid && (

@@ -17,7 +17,7 @@ const CheckoutForm = ({ myorder }) => {
 
     useEffect(() => {
         if (price) {
-            fetch('http://localhost:5000/create-payment-intent', {
+            fetch('https://aqueous-cove-16160.herokuapp.com/create-payment-intent', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',
@@ -82,7 +82,7 @@ const CheckoutForm = ({ myorder }) => {
 
             const transactionId = paymentIntent.id
 
-            fetch(`http://localhost:5000/myorder/${myorder?._id}`, {
+            fetch(`https://aqueous-cove-16160.herokuapp.com/myorder/${myorder?._id}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
