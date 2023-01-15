@@ -1,8 +1,8 @@
 ## Project name: Dewalt Tools Manufacturer
 
-## Project Front-end git repositor name:manufacturer-website-client-side-MShafiMS
+# Project Front-end git repositor name:manufacturer-website-client-side-MShafiMS
 
-## Project Back-end git repositor name:manufacturer-website-server-side-MShafiMS
+# Project Back-end git repositor name:manufacturer-website-server-side-MShafiMS
 
 ## [Live Website](https://tools-manufacturer-f4df9.web.app/)
 
