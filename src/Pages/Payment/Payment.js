@@ -11,7 +11,7 @@ const Payment = () => {
     const [myorder, setProducts] = useState([]);
     useEffect(() => {
 
-        fetch(`https://aqueous-cove-16160.herokuapp.com/myorder/${id}`)
+        fetch(`https://manufacturer-website-g1e2.onrender.com/myorder/${id}`)
             .then(res => res.json())
             .then(data => {
                 setProducts(data);
@@ -26,7 +26,7 @@ const Payment = () => {
                 <div class="card-body">
                     <p className="text-success font-bold">Hello, {myorder.name}</p>
                     <h2 class="card-title">Please Pay for {myorder.productName}</h2>
-                    <p>Please pay: ${myorder.price}</p>
+                    <p>Please pay: ${myorder.total}</p>
                 </div>
             </div>
             <div class="card mx-auto mb-8 flex-shrink-0 w-50 max-w-md shadow-2xl bg-base-100">

@@ -1,60 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import b1 from "../../../Assets/Banner/b1.jpg";
-import b2 from "../../../Assets/Banner/b2.jpg";
-import b3 from "../../../Assets/Banner/b3.jpg";
-import './Banner.css'
+import './Banner.css';
 
 const Banner = () => {
   return (
     <div>
-      <div id="fdd" className=" carousel w-full">
-        <div id="slide1" className="carousel-item relative w-full">
-          <img src={b1} className="w-full" />
-          <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-            <a href="#slide3" className="btn btn-circle">
-              ❮
-            </a>
-            <a href="#slide2" className="btn btn-circle">
-              ❯
-            </a>
-          </div>
-        </div>
-        <div id="slide2" className="carousel-item relative w-full">
-          <img src={b2} className="w-full" />
-          <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-            <a href="#slide1" className="btn btn-circle">
-              ❮
-            </a>
-            <a href="#slide3" className="btn btn-circle">
-              ❯
-            </a>
-          </div>
-        </div>
-        <div id="slide3" className="carousel-item relative w-full">
-          <img src={b3} className="w-full" />
-          <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-            <a href="#slide2" className="btn btn-circle">
-              ❮
-            </a>
-            <a href="#slide1" className="btn btn-circle">
-              ❯
-            </a>
-          </div>
-        </div>
-      </div>
+      
       <div
         
-        class="rdd md:hidden lg:hidden hero min-h-screen"
+        class="rdd hero min-h-screen "
       >
-        <div class="hero-overlay bg-opacity-60"></div>
+        <div class="hero-overlay bg-base-100 bg-opacity-50"></div>
         <div class="hero-content text-center text-neutral-content">
-          <div class="max-w-md">
+          <div class="max-w-md my_dark:text-[#BDCAEF]">
             <h1 class="mb-5 text-5xl font-bold">MY DEWALT</h1>
             <p class="mb-5">
             Join MyDEWALT to register your tools and help protect your investment, rate and review products you love, and learn about the newest DEWALT tools and accessories.
             </p>
-            <Link to={'/shop'} class="btn btn-primary">Shop Now</Link>
+            <Link to={"/shop"} type="button" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-md px-5 py-2.5 text-center mr-2 mb-2 text-lg uppercase">Shop Now</Link>
+            
           </div>
         </div>
       </div>

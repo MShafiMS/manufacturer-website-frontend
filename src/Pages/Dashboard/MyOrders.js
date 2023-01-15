@@ -1,8 +1,9 @@
-import { React, useState, useEffect } from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
-import auth from "../../firebase.init";
 import { signOut } from "firebase/auth";
+import { React, useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import auth from "../../firebase.init";
 const Myorders = () => {
   const [user] = useAuthState(auth);
   const navigate = useNavigate();
@@ -14,7 +15,7 @@ const Myorders = () => {
 
   useEffect(() => {
     if (user) {
-      fetch(`https://aqueous-cove-16160.herokuapp.com/myorder?email=${email}`, {
+      fetch(`https://manufacturer-website-g1e2.onrender.com/myorder?email=${email}`, {
         method: "GET",
         headers: {
           authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -37,21 +38,35 @@ const Myorders = () => {
   }, [products]);
 
   const deleteItems = (id) => {
-    const proceed = window.confirm("Are you sure to delete this order?");
-    if (proceed) {
-      fetch(
-        `https://aqueous-cove-16160.herokuapp.com/order/${id}`,
-        {
-          method: "DELETE",
-        },
-        [products]
-      )
-        .then((response) => response.json())
-        .then((data) => {
-          const remaining = products.filter((item) => item._id !== id);
-          setProduct(remaining);
-        });
-    }
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(
+          `https://manufacturer-website-g1e2.onrender.com/order/${id}`,
+          {
+            method: "DELETE",
+          },
+          [products]
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            const remaining = products.filter((item) => item._id !== id);
+            setProduct(remaining);
+          });
+        Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        )
+      }
+    })
   };
   return (
     <div className="overflow-x-auto">
@@ -62,11 +77,9 @@ const Myorders = () => {
         <thead>
           <tr>
             <th className="text-secondary">User</th>
-            <th className="text-secondary">
-              Product Name
-            </th>
-            <th className="text-success">Price</th>
+            <th className="text-secondary">Product Name</th>
             <th className="text-secondary">Quantity</th>
+            <th className="text-success">Total</th>
             <th className="text-secondary ">Action</th>
           </tr>
         </thead>
@@ -75,14 +88,6 @@ const Myorders = () => {
             <tr>
               <td>
                 <div className="flex items-center space-x-3">
-                  <div className="avatar">
-                    <div className="mask mask-squircle w-12 h-12">
-                      <img
-                        src={user?.photoURL}
-                        alt="Avatar Tailwind CSS Component"
-                      />
-                    </div>
-                  </div>
                   <div>
                     <div className="font-bold">{item.name}</div>
                     <div className="text-sm opacity-50">{item.email}</div>
@@ -90,13 +95,27 @@ const Myorders = () => {
                 </div>
               </td>
               <td className="font-semibold font-xl">
-                {item.productName}
+                <div className="flex items-center space-x-3">
+                <div className="avatar">
+                  <div className="mask mask-squircle w-12 h-12">
+                    <img src={item.img} alt="Avatar Tailwind CSS Component" />
+                  </div>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div>
+                    <div className="font-bold">{item.productName}</div>
+                    <div className="text-sm opacity-50">Price Per Unit: {item.price}</div>
+                  </div>
+                </div>
+                </div>
               </td>
-              <td className="font-semibold text-xl"><span className="text-success font-semibold text-xl pl-4">
-                  {" "}
-                  {item.price}
-                </span></td>
               <td className="font-semibold text-xl">{item.quantity}</td>
+              <td className="font-semibold text-xl">
+                <span className="text-success font-semibold text-xl pl-4">
+                  {" "}
+                  ${item.total}
+                </span>
+              </td>
               <th>
                 {item.price && !item.paid && (
                   <>
@@ -108,45 +127,19 @@ const Myorders = () => {
                     </Link>
 
                     {/* <!-- The button to open modal --> */}
-                    <label
+                    <button
+                    onClick={() => deleteItems(item._id)}
                       for="my-modal-3"
                       class="btn btn-secondary btn-xs modal-button"
                     >
                       Delete
-                    </label>
-
-                    {/* <!-- Put this part before </body> tag --> */}
-                    <input
-                      type="checkbox"
-                      id="my-modal-3"
-                      class="modal-toggle"
-                    />
-                    <div class="modal">
-                      <div class="modal-box relative w-80">
-                        <h3 class="text-lg font-bold">
-                          Delete Order?
-                        </h3>
-                        <p class="py-4">
-                        Are you sure to delete this order?
-                        </p>
-                        <button
-                          onClick={() => deleteItems(item._id)}
-                          className="btn btn-secondary btn-sm ml-32"
-                        >
-                          Delete
-                        </button>
-                        <label
-                          for="my-modal-3"
-                          class="btn btn-sm absolute ml-2 right-3"
-                        >
-                          Cancle
-                        </label>
-                      </div>
-                    </div>
+                    </button>
                   </>
                 )}
                 {item.price && item.paid && (
-                  <p className="badge badge-success">Transaction ID: {item?.transactionId}</p>
+                  <p className="badge badge-success">
+                    Transaction ID: {item?.transactionId}
+                  </p>
                 )}
               </th>
             </tr>

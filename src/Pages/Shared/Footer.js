@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../logo.png";
+import './Footer.css'
 
 const Footer = () => {
   const today = new Date();

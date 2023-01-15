@@ -1,11 +1,10 @@
 import React, { useRef, useState } from 'react';
 import { Form } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from '../../firebase.init';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { signOut } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import auth from '../../firebase.init';
 const AddProduct = () => {
     const [user] = useAuthState(auth);
     const namevalue = useRef('');
@@ -38,7 +37,7 @@ const AddProduct = () => {
 
         //add item with conditional statement
         if (name && img && description && price && minOrderQuantity && availableQuantiti) {
-            fetch('https://aqueous-cove-16160.herokuapp.com/products', {
+            fetch('https://manufacturer-website-g1e2.onrender.com/products', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

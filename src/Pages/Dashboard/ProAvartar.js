@@ -14,7 +14,7 @@ const ProAvatar = ({ product, deleteItem }) => {
   const deleteItems = (id) => {
     const proceed = window.confirm("Are you sure to delete this item?");
     if (proceed) {
-      fetch(`https://aqueous-cove-16160.herokuapp.com/allproducts/${id}`, {
+      fetch(`https://manufacturer-website-g1e2.onrender.com/allproducts/${id}`, {
         method: "DELETE",
       })
         .then((response) => response.json())

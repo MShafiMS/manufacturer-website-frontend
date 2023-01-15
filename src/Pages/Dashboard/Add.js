@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
-import auth from "../../firebase.init";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { Form } from "react-bootstrap";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import auth from "../../firebase.init";
 
 const Add = () => {
   const [user] = useAuthState(auth);
@@ -15,7 +15,7 @@ const Add = () => {
   const [product, setProduct] = useState([]);
   const [loading1, setloading1] = useState(true);
   useEffect(() => {
-    fetch(`https://aqueous-cove-16160.herokuapp.com/myprofile/${user?.email}`)
+    fetch(`https://manufacturer-website-g1e2.onrender.com/myprofile/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setProduct(data);
@@ -42,7 +42,7 @@ const Add = () => {
     //add item with conditional statement
     if (educations || locationss || phoneno || linkins)
       fetch(
-        `https://aqueous-cove-16160.herokuapp.com/myprofile/${user?.email}`,
+        `https://manufacturer-website-g1e2.onrender.com/myprofile/${user?.email}`,
         {
           method: "PUT",
           headers: {
@@ -65,7 +65,7 @@ const Add = () => {
   };
 
   return (
-    <div className="container">
+    <div>
       <div className="card-body">
         <h1 className="font-bold mx-auto text-3xl text-secondary">
           Update Your Profile

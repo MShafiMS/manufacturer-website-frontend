@@ -1,30 +1,50 @@
-import RequireAuth from './Pages/Login/RequireAuth';
-import './App.css';
-import Navbar from './Pages/Navbar/Navbar';
+import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Home from './Pages/Home/Home';
-import Footer from './Pages/Shared/Footer';
-import Dashboard from './Pages/Dashboard/Dashboard';
+import './App.css';
 import Blogs from './Pages/Blogs/Blogs';
-import Login from './Pages/Login/Login';
-import SignUp from './Pages/SignUp/SignUp';
-import MyProfile from './Pages/Dashboard/MyProfile';
-import MyOrders from './Pages/Dashboard/MyOrders';
-import Review from './Pages/Dashboard/Review';
-import ManageOrders from './Pages/Dashboard/ManageOrders';
-import Manage from './Pages/Dashboard/Manage';
-import AddProduct from './Pages/Dashboard/AddProduct';
-import Purchase from './Pages/Purchase/Purchase';
 import Add from './Pages/Dashboard/Add';
+import AddProduct from './Pages/Dashboard/AddProduct';
+import Dashboard from './Pages/Dashboard/Dashboard';
+import Manage from './Pages/Dashboard/Manage';
+import ManageOrders from './Pages/Dashboard/ManageOrders';
+import MyOrders from './Pages/Dashboard/MyOrders';
 import MyPortfolio from './Pages/Dashboard/MyPortfolio/MyPortfolio';
+import MyProfile from './Pages/Dashboard/MyProfile';
+import Review from './Pages/Dashboard/Review';
 import Users from './Pages/Dashboard/Users';
+import Home from './Pages/Home/Home';
+import Shop from './Pages/Home/Shop';
+import Login from './Pages/Login/Login';
+import RequireAuth from './Pages/Login/RequireAuth';
+import Navbar from './Pages/Navbar/Navbar';
 import NotFound from './Pages/NotFound/NotFound';
 import Payment from './Pages/Payment/Payment';
-import Shop from './Pages/Home/Shop';
+import Purchase from './Pages/Purchase/Purchase';
+import Footer from './Pages/Shared/Footer';
+import SignUp from './Pages/SignUp/SignUp';
 function App() {
+  const [theme, setTheme] = useState(false);
+
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
+
+  useEffect(() => {
+    setTheme(JSON.parse(window.localStorage.getItem("theme")));
+  }, []);
+  const handleThemeChange = () => {
+    setTheme(!theme);
+    window.localStorage.setItem("theme", !theme);
+  };
+
   return (
-    <div className='bg-base-200'>
-      <Navbar></Navbar>
+    <div data-theme={theme && "my_dark"} className='min-h-screen'>
+      <Navbar  handleThemeChange={handleThemeChange} theme={theme}></Navbar>
+      <div>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
@@ -50,6 +70,7 @@ function App() {
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
+      </div>
       <Footer></Footer>
     </div>
   );

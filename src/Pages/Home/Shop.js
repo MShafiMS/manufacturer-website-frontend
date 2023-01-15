@@ -3,7 +3,7 @@ import Products from './Products/Products';
 
 const Shop = () => {
     return (
-        <div className='mx-4'>
+        <div className='mx-4 mb-16'>
             <Products></Products>
         </div>
     );

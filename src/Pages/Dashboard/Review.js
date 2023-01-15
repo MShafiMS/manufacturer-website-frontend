@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { Form } from "react-bootstrap";
-import { ToastContainer, toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Review = () => {
@@ -28,7 +28,7 @@ const Review = () => {
     //add item with conditional statement
     if (rating && description) {
       fetch(
-        "https://aqueous-cove-16160.herokuapp.com/reviews",
+        "https://manufacturer-website-g1e2.onrender.com/reviews",
         {
           method: "POST",
           headers: {

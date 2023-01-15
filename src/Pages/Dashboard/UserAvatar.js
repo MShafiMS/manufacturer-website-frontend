@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
+import React from 'react';
+import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const UserAvatar = ({ user, refetch }) => {
 
     const makeAdmin = () => {
-        fetch(`https://aqueous-cove-16160.herokuapp.com/user/admin/${user?.email}`, {
+        fetch(`https://manufacturer-website-g1e2.onrender.com/user/admin/${user?.email}`, {
             method: 'PUT',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

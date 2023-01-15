@@ -13,7 +13,7 @@ const Manage = () => {
   const [loading, setloading] = useState(true);
   useEffect(() => {
     if (user) {
-      fetch(`https://aqueous-cove-16160.herokuapp.com/allproducts`, {
+      fetch(`https://manufacturer-website-g1e2.onrender.com/allproducts`, {
         method: "GET",
         headers: {
           authorization: `Bearer ${localStorage.getItem("accessToken")}`,

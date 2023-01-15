@@ -9,7 +9,7 @@ const Users = () => {
     isLoading,
     refetch,
   } = useQuery("users", () =>
-    fetch("https://aqueous-cove-16160.herokuapp.com/user", {
+    fetch("https://manufacturer-website-g1e2.onrender.com/user", {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -26,20 +26,14 @@ const Users = () => {
         <table className="table w-full">
           <thead>
             <tr>
-              <th>
-                <script>
-                  document.getElementById("my-checkbox").indeterminate = true
-                </script>
-                <input type="checkbox" className="checkbox  checkbox-secondary" id="my-checkbox" />
-              </th>
+              <th>Index</th>
               <th className="text-secondary">User Email</th>
               <th className="text-secondary">Make Admin</th>
-              <th className="text-secondary">Remove User</th>
             </tr>
           </thead>
           <tbody>
-            {users.map((user) => (
-              <UserRow key={user._id} user={user} refetch={refetch}></UserRow>
+            {users?.map((user, index) => (
+              <UserRow key={user._id} user={user} index={index} refetch={refetch}></UserRow>
             ))}
           </tbody>
         </table>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 
 const useAdmin = user => {
     const [admin, setAdmin] = useState(false);
@@ -6,7 +6,7 @@ const useAdmin = user => {
     useEffect(() => {
         const email = user?.email;
         if (email) {
-            fetch(`https://aqueous-cove-16160.herokuapp.com/admin/${email}`, {
+            fetch(`https://manufacturer-website-g1e2.onrender.com/admin/${email}`, {
                 method: 'GET',
                 headers: {
                     'content-type': 'application/json',

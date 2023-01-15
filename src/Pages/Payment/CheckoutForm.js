@@ -1,5 +1,5 @@
+import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useEffect, useState } from 'react';
-import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 
 const CheckoutForm = ({ myorder }) => {
     const stripe = useStripe();
@@ -17,7 +17,7 @@ const CheckoutForm = ({ myorder }) => {
 
     useEffect(() => {
         if (price) {
-            fetch('https://aqueous-cove-16160.herokuapp.com/create-payment-intent', {
+            fetch('https://manufacturer-website-g1e2.onrender.com/create-payment-intent', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',
@@ -82,7 +82,7 @@ const CheckoutForm = ({ myorder }) => {
 
             const transactionId = paymentIntent.id
 
-            fetch(`https://aqueous-cove-16160.herokuapp.com/myorder/${myorder?._id}`, {
+            fetch(`https://manufacturer-website-g1e2.onrender.com/myorder/${myorder?._id}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',

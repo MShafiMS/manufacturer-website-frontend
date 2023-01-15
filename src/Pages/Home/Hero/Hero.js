@@ -7,18 +7,19 @@ import {
 } from "@heroicons/react/solid";
 import React from "react";
 import hero from "../../../Assets/hero.jpg";
+import './Hero.css';
 
 const Hero = () => {
   return (
     <div>
-      <div className="hero min-h-screen">
+      <div className="hero pt-10 pb-20 border-b border-neutral bg-base-200">
         <div className="hero-content m-0 flex-col lg:flex-row">
           <div className="indicator">
-            <div className="indicator-item indicator-top lg:indicator-middle  mr-20 mt-8 lg:mt-36 ">
-              <div className="card lg:card-side bg-primary shadow-lg shadow-primary">
+            <div className="indicator-item mdd indicator-top lg:indicator-middle  mr-20 mt-8 lg:mt-36 ">
+              <div className="lg:card-side bg-base-200 shadow-sm shadow-primary">
                 <div className="card-body">
-                  <h2 className="text-4xl font-bold text-center text-white">32+</h2>
-                  <p className="text-center font-medium text-white">Years Experience</p>
+                  <h2 className="text-4xl font-bold text-center">32+</h2>
+                  <p className="text-center font-medium">Years Experience</p>
                 </div>
               </div>
             </div>
@@ -28,7 +29,7 @@ const Hero = () => {
             />
           </div>
           <div className="lg:mx-20">
-            <h1 className="text-5xl font-bold">Who We Are !</h1>
+            <h1 className="text-4xl font-bold">Who We Are !</h1>
             <p className="py-6">
               We are working for your best tools. Which are suits your
               personality. You find best and qualityful tools from us.
