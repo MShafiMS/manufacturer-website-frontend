@@ -2,13 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 const Products = ({ product }) => {
   const {
-    _id,
-    name,
-    img,
-    description,
-    minimumOrderQuantity,
-    availableQuantity,
-    price,
+    _id
   } = product;
   return (
     <div>

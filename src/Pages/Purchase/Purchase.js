@@ -18,7 +18,7 @@ const Purchase = () => {
   const buttondisable = useRef();
   const { data: products, isLoading } = useQuery(["productsid"], () =>
     fetch(
-      `https://manufacturer-website-g1e2.onrender.com/products/${purchaseId}`
+      `https://aqueous-cove-16160.herokuapp.com/products/${purchaseId}`
     ).then((res) => res.json())
   );
   if (isLoading) {
@@ -44,7 +44,7 @@ const Purchase = () => {
       phoneNumber: phoneNumbers,
     };
     fetch(
-      "https://manufacturer-website-g1e2.onrender.com/order",
+      "https://aqueous-cove-16160.herokuapp.com/order",
       {
         method: "POST",
         headers: {
@@ -99,14 +99,16 @@ const Purchase = () => {
   return (
     <div>
       <div className="card-body mx-auto">
-        <h1 className="font-bold text-info text-2xl">
-          {user.displayName}
-        </h1>
+        <h1 className="font-bold text-info text-2xl">{user.displayName}</h1>
         <h1 className="font-semibold text-xl">{user.email}</h1>
       </div>
       <div className="flex p-8 w-11/12 rounded-lg items-start flex-col lg:flex-row mb-8 mx-auto bg-base-200 border-neutral border shadow-xl">
         <div className="w-full">
-          <img src={products?.img} alt="Shoes" className="border border-neutral rounded-xl" />
+          <img
+            src={products?.img}
+            alt="Shoes"
+            className="border border-neutral rounded-xl"
+          />
         </div>
         <div className="w-full">
           <h2 className="text-xl font-bold text-info">{products?.name}</h2>
@@ -159,32 +161,29 @@ const Purchase = () => {
           </div>
         </div>
       </div>
-      {/* <!-- The button to open modal --> */}
-
-      {/* <!-- Put this part before </body> tag --> */}
       <input type="checkbox" id="my-modal-3" class="modal-toggle" />
       <div class="modal">
         <div class="modal-box relative">
           <label
             for="my-modal-3"
-            class="btn btn-sm btn-info btn-circle absolute right-2 top-2"
+            class="btn btn-md btn-info text-white absolute right-2 top-2"
           >
             ✕
           </label>
-          <div className="flex-shrink-0 mx-auto w-full max-w-sm bg-base-100">
+          <div className="flex-shrink-0 mx-auto w-full rounded-lg max-w-xl bg-base-100">
             <div className="card-body">
-              <h1 className="font-bold text-3xl text-info">
-                Purchase Form
-              </h1>
-              <Form onSubmit={submitForm}>
-                <div className="form-control">
-                  <figure className="px-10 hidden pt-10">
+              <h1 className="font-bold text-3xl text-info">Purchase Form</h1>
+              <Form onSubmit={submitForm} className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                <div className="form-control lg:col-span-2">
+                  <figure className="py-5">
                     <img
                       src={products?.img}
                       alt="Shoes"
-                      className="img rounded-xl"
+                      className="img rounded-xl border border-neutral w-48 mx-auto"
                     />
                   </figure>
+                </div>
+                <div className="form-control">
                   <label className="label">
                     <span className="label-text">Name</span>
                   </label>
@@ -193,7 +192,6 @@ const Purchase = () => {
                     className="input input-bordered input-info max-w-xs"
                     value={user.displayName}
                     readOnly
-                    autoFocus
                   />
                 </div>
                 <div className="form-control">
@@ -205,7 +203,6 @@ const Purchase = () => {
                     className="input input-bordered input-info max-w-xs"
                     value={user.email}
                     readOnly
-                    autoFocus
                   />
                 </div>
                 <div className="form-control">
@@ -217,7 +214,6 @@ const Purchase = () => {
                     className="input input-bordered input-info max-w-xs"
                     value={products?.name}
                     readOnly
-                    autoFocus
                   />
                 </div>
                 <div className="form-control">
@@ -229,7 +225,6 @@ const Purchase = () => {
                     className="input input-bordered input-info max-w-xs"
                     value={products?.price}
                     readOnly
-                    autoFocus
                   />
                 </div>
                 <div className="form-control">
@@ -242,24 +237,24 @@ const Purchase = () => {
                     ref={quantities2}
                     value={products.minimumOrderQuantity}
                     readOnly
-                    autoFocus
                   />
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text">Total</span>
+                    <span className="label-text">Total Price</span>
                   </label>
                   <input
                     type="text"
                     className="input input-bordered input-info max-w-xs"
                     value={totalPrice}
                     readOnly
-                    autoFocus
                   />
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text">Enter Address</span>
+                    <span className="label-text">
+                      Enter Address <span className="text-red-500">*</span>
+                    </span>
                   </label>
                   <input
                     ref={addresss}
@@ -271,7 +266,9 @@ const Purchase = () => {
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text">Enter Phone Number</span>
+                    <span className="label-text">
+                      Enter Phone Number <span className="text-red-500">*</span>
+                    </span>
                   </label>
                   <input
                     ref={phoneNo}
@@ -281,12 +278,12 @@ const Purchase = () => {
                     className="input input-bordered input-info max-w-xs"
                   />
                 </div>
-                <div className="form-control mt-6">
+                <div className="form-control mt-6 lg:col-span-2">
                   <button
                     ref={buttondisable}
                     className="btn btn-info text-white"
                   >
-                    Purchase
+                    Submit Order
                   </button>
                 </div>
               </Form>
